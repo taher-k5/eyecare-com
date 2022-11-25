@@ -1,0 +1,197 @@
+{#
+==================================================
+    Image Content With Sidenote (imageContentWithSidenote)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Main Eyebrow (mainEyebrow)
+        - Main Heading (mainHeading)
+        - Main Text (mainText)
+        - Image (image)
+        - Sidenote (sidenote)
+        - Heading (heading)
+        - Text (text)
+        - Lists (lists) [Matrix]
+            - Text (text)
+        - Buttons (buttons) [Matrix]
+            - Button (button)
+            - Button Color (buttonColor)
+        - Background Color (backgroundColor)
+        - Background Image (backgroundImage)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG Image #}
+{% set bgImage = block.backgroundImage.one() %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(last ? 'pb-medium'),
+    "bg-layer-equal-height bg-image"
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: 463,
+    height: 552,
+    quality: 85
+} %}
+
+{# Bg Image #}
+{% set params = {
+    image: bgImage,
+    selctor: id
+} %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<section {{ attr(attributes) }}>
+    {{ render.setBackgroundImage(params) }}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title title-style-center_text">
+                    {% if block.mainEyebrow|length or block.mainHeading|length %}
+                    <div class="title-header">
+                        {% if block.mainEyebrow|length %}
+                        <h3 class="eyebrowColor">{{ block.mainEyebrow }}</h3>
+                        {% endif %}
+
+                        {% set params = {
+                            text: block.mainHeading,
+                            class: 'ttm-textcolor-skincolor',
+                        } %}
+                        {% if block.mainHeading|length %}
+                        <h2 class="title">{{ render.replaceUnderscores(params) }}</h2>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    {% if block.mainHeading|length %}
+                        <div class="heading-seperator"><span></span></div>
+                    {% endif %}
+
+                    {% if block.mainText|length %}
+                    <div class="title-desc">
+                        {{ block.mainText }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row no-gutters padding_top20">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="d-lg-flex w-100 h-100">
+                            <div class="ttm-bgcolor-grey d-flex flex-column align-items-center text-center">
+                                <div class="ttm-vertical-text padding_top50 padding_bottom50 padding_left15 padding_right15">
+                                    <h3 class="fs-22 m-0">
+                                        <a href="{{ block.sidenote.getUrl() }}" {% if block.sidenote.target %}target="_blank" rel="noopener"{% endif %}>
+                                            {% set params = {
+                                                text: block.sidenote.text,
+                                                class: 'ttm-textcolor-skincolor',
+                                            } %}
+                                            {{ render.replaceUnderscores(params) }}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <div class="col p-0">
+                                <div class="col-bg-img-two ttm-col-bgimage-yes ttm-bg margin_left20">
+                                    {% set image = block.image.one() %}
+                                    {% set id = 'image' ~ image.getId() %}
+                                    {% if image|length %}
+                                    <div id="{{ id }}" class="ttm-bg-layer ttm-col-wrapper-bg-layer">
+                                        {% set params = {
+                                            image: image,
+                                            selctor: id,
+                                        } %}
+                                        {{ render.setBackgroundImage(params) }}
+                                    </div>
+                                    {% endif %}
+                                    <div class="layer-content"></div>
+                                </div>
+                                {% set image = block.image.one() %}
+                                {% if image|length %}
+                                {% set params = {
+                                    image: image.getUrl(thumb),
+                                    alt: image.title,
+                                    class: 'img-fluid ttm-equal-height-image',
+                                } %}
+                                {{ render.setImage(params) }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ttm-bg ttm-col-bgcolor-yes ttm-bgcolor-white spacing-3 h-100">
+                            <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
+                            <div class="layer-content">
+                                {% if block.heading|length %}
+                                <div class="section-title col-title">
+                                    <div class="title-header">
+                                        {% set params = {
+                                            text: block.heading,
+                                            class: 'ttm-textcolor-skincolor',
+                                        } %}
+                                        <h2 class="title">{{ render.replaceUnderscores(params) }}</h2>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                {{ block.text }}
+
+                                {% for list in block.lists.all() %}
+                                <div class="padding_top10{% if loop.last %} padding_bottom35{% endif %}">
+                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor ttm-textcolor-darkgrey">
+                                        <li><i class="fa fa-check"></i>
+                                            <div class="ttm-list-li-content">
+                                                {{ list.text }}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {% endfor %}
+
+                                {% for item in block.buttons.all() %}
+                                    {% set extras = item.buttonColor.getExtras() %}
+                                    {% set options = {
+                                        button: item.button,
+                                        color: extras.classes,
+                                    } %}
+                                    {{ render.createButton(options) }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

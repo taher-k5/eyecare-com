@@ -1,0 +1,17 @@
+{#
+==================================================
+    Content Sliders (contentSliders)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Child
+	        - Content Slider (contentSlider)
+==================================================
+ #}
+
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% for block in block.children.all() %}
+	{% include "_partials/hero/contentSliders/" ~ block.type %}
+{% endfor %}

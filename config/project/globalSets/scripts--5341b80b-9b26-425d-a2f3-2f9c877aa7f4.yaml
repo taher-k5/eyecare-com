@@ -1,0 +1,19 @@
+fieldLayouts:
+  7283a1e9-d279-4ce3-8632-17682c6afa24:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: db7881e7-5069-47d7-a220-7cdce993a94a # Scripts
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: scripts
+name: Scripts
+sortOrder: 4

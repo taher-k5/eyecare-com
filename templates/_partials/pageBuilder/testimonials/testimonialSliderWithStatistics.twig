@@ -1,0 +1,210 @@
+{#
+==================================================
+    Testimonial Slider With Statistics (testimonialSliderWithStatistics)
+    Variable:
+        - Block (Block)
+    Fields:
+        - Heading (heading)
+        - Testimonials (testimonials)
+        - CTA (cta)
+        - Background Image (backgroundImage)
+        - Background Color (backgroundColor)
+        - Opacity (opacity)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default("ttm-bgcolor-darkgrey") %}
+{% set opacity = block.opacity.getValue()|default("opacity--9") %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or last ? 'pb-medium'),
+    bgColor,
+    opacity,
+    "ttm-bgimage-yes ttm-bg bg-image"
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+{% if block.testimonials|length %}
+    {% set listing = block.testimonials.limit(block.limit|default(3)).all() %}
+{% else %}
+    {% set listing = craft.entries.section("testimonials").orderBy("title asc").limit(block.limit|default(3)).all() %}
+{% endif %}
+
+{% set bgImage = block.backgroundImage.one() %}
+{% set bgImage = {
+    image: bgImage,
+    selctor: id,
+} %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: 150,
+    height: 150,
+    quality: 85
+} %}
+
+<section {{ attr(attributes) }}>
+    {{ render.setBackgroundImage(bgImage) }}
+    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-12">
+                <div class="padding_right90 res-991-padding_right0">
+                    {% if block.heading|length %}
+                    <div class="section-title">
+                        <div class="title-header">
+                            {% set textColor = bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-textcolor-darkgrey' : 'ttm-textcolor-skincolor' %}
+                            {% set params = {
+                                text: block.heading,
+                                class: textColor,
+                            } %}
+                            <h2 class="title{% if bgColor == 'ttm-bgcolor-grey' %} text-black-50{% endif %}">
+                                {{ render.replaceUnderscores(params) }}
+                            </h2>
+                        </div>
+                        <div class="heading-seperator"><span></span></div>
+                    </div>
+                    {% endif %}
+
+                    {% for item in listing %}
+                    {% if loop.first %}
+                    <div class="slick_slider slick-arrows-style3" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "arrows":true, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":992,"settings": {"slidesToShow": 1}},{"breakpoint":620,"settings":{"slidesToShow": 1}}]}'>
+                    {% endif %}
+                        <div class="testimonials ttm-testimonial-box-view-style2">
+                            <div class="testimonial-content{% if bgColor == 'ttm-bgcolor-grey' %} text-black-50{% endif %}">
+                                {% if item.text|length %}
+                                <blockquote>
+                                    {{ item.text }}
+                                </blockquote>
+                                {% endif %}
+                                <div class="d-flex align-items-center">
+                                    {% set image = item.image.one() %}
+                                    {% if image|length %}
+                                    <div class="testimonial-avatar">
+                                        <div class="testimonial-img">
+                                            {% set params = {
+                                                image: image.getUrl(thumb),
+                                                alt: image.title,
+                                                class: 'img-fluid',
+                                            } %}
+                                            {{ render.setImage(params) }}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    <div class="testimonial-caption">
+                                        <h3 class="{% if bgColor == 'ttm-bgcolor-skincolor' %}text-white{% endif %}">{{ item.title }}</h3>
+                                        {% if item.designation|length %}
+                                        <label>{{ item.designation }}</label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% if loop.last %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            {# CTA Builder #}
+            {% if block.cta|length %}
+            {% set cta = block.cta.one() %}
+            {% for block in cta.ctaBuilder.all() %}
+            {% if block.statistics|length %}
+            {% if loop.first %}
+            <div class="col-lg-5">
+                <div class="ttm-bg ttm-bgcolor-white spacing-6">
+            {% endif %}
+                    <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                        <div class="ttm-col-wrapper-bg-layer-inner"></div>
+                    </div>
+                    <div class="layer-content">
+                        {% if block.mainHeading|length %}
+                        <div class="section-title title-style-center_text margin_bottom0">
+                            <div class="title-header">
+                                <h3 class="d-inline-block eyebrowColor">{{ block.mainHeading }}</h3>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% for child in block.statistics.all() %}
+                        {% if loop.first %}
+                        <div class="row{% if not block.mainHeading|length %} pt-3{% endif %}">
+                        {% endif %}
+                            <div class="col-lg-6 col-md-6 col-sm-6 ttm-box-col-wrapper">
+                                <div class="ttm-fid inside ttm-fid-with-icon ttm-fid-view-topicon style2">
+                                    <div class="ttm-fid-icon-wrapper ttm-textcolor-skincolor">
+                                        {% set params = {
+                                            icon: child.icon
+                                        } %}
+                                        {{ render.icon(params) }}
+                                    </div>
+
+                                    {% if child.number|length or child.heading|length %}
+                                    <div class="ttm-fid-contents">
+                                        {% if child.number|length %}
+                                        <h4 class="ttm-fid-inner">
+                                            <span   data-appear-animation="animateDigits"
+                                                    data-from="0"
+                                                    data-to="{{ child.number }}"
+                                                    data-interval="20"
+                                                    data-before=""
+                                                    data-before-style="sup"
+                                                    data-after=""
+                                                    data-after-style="sub"
+                                                    class="numinate">
+                                                {{ child.number }}
+                                            </span>
+                                        </h4>
+                                        {% endif %}
+
+                                        {% if child.heading|length %}
+                                        <h3 class="ttm-fid-title">{{ child.heading }}</h3>
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% if loop.last %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+            {% if loop.last %}
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>

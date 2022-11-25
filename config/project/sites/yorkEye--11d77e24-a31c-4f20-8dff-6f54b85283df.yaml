@@ -1,0 +1,9 @@
+baseUrl: $FOURTH_SITE_URL
+enabled: true
+handle: yorkEye
+hasUrls: true
+language: en-US
+name: 'York Eye'
+primary: false
+siteGroup: d056edb3-0b8c-4a3e-8b47-f29e2476ac30 # Sanspareil Eyecare
+sortOrder: 4

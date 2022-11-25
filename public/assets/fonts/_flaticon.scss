@@ -1,0 +1,168 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 12/01/2021 12:11
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-optical:before { content: "\f100"; }
+.flaticon-eye:before { content: "\f101"; }
+.flaticon-optical-1:before { content: "\f102"; }
+.flaticon-eye-1:before { content: "\f103"; }
+.flaticon-glasses:before { content: "\f104"; }
+.flaticon-eyeglasses:before { content: "\f105"; }
+.flaticon-eye-2:before { content: "\f106"; }
+.flaticon-vision:before { content: "\f107"; }
+.flaticon-optical-shop:before { content: "\f108"; }
+.flaticon-optical-2:before { content: "\f109"; }
+.flaticon-optics:before { content: "\f10a"; }
+.flaticon-optical-3:before { content: "\f10b"; }
+.flaticon-optics-1:before { content: "\f10c"; }
+.flaticon-vision-1:before { content: "\f10d"; }
+.flaticon-observation:before { content: "\f10e"; }
+.flaticon-optical-4:before { content: "\f10f"; }
+.flaticon-optical-5:before { content: "\f110"; }
+.flaticon-optical-6:before { content: "\f111"; }
+.flaticon-optic:before { content: "\f112"; }
+.flaticon-vision-2:before { content: "\f113"; }
+.flaticon-view:before { content: "\f114"; }
+.flaticon-eye-exam:before { content: "\f115"; }
+.flaticon-contact-lens:before { content: "\f116"; }
+.flaticon-visual:before { content: "\f117"; }
+.flaticon-glasses-1:before { content: "\f118"; }
+.flaticon-eye-3:before { content: "\f119"; }
+.flaticon-eyeglasses-1:before { content: "\f11a"; }
+.flaticon-computer:before { content: "\f11b"; }
+.flaticon-view-1:before { content: "\f11c"; }
+.flaticon-vision-3:before { content: "\f11d"; }
+.flaticon-eyeglasses-2:before { content: "\f11e"; }
+.flaticon-ophthalmology:before { content: "\f11f"; }
+.flaticon-optical-7:before { content: "\f120"; }
+.flaticon-eye-test:before { content: "\f121"; }
+.flaticon-glasses-2:before { content: "\f122"; }
+.flaticon-eye-4:before { content: "\f123"; }
+.flaticon-refraction:before { content: "\f124"; }
+.flaticon-eye-exam-1:before { content: "\f125"; }
+.flaticon-glasses-3:before { content: "\f126"; }
+.flaticon-dropper:before { content: "\f127"; }
+.flaticon-eyeglasses-3:before { content: "\f128"; }
+.flaticon-oculist:before { content: "\f129"; }
+.flaticon-doctor:before { content: "\f12a"; }
+.flaticon-doctor-1:before { content: "\f12b"; }
+.flaticon-eye-exam-2:before { content: "\f12c"; }
+.flaticon-eye-test-1:before { content: "\f12d"; }
+.flaticon-medical-report:before { content: "\f12e"; }
+.flaticon-medical-report-1:before { content: "\f12f"; }
+.flaticon-medicines:before { content: "\f130"; }
+.flaticon-medicine:before { content: "\f131"; }
+.flaticon-phone-call:before { content: "\f132"; }
+.flaticon-location:before { content: "\f133"; }
+.flaticon-placeholder:before { content: "\f134"; }
+.flaticon-email:before { content: "\f135"; }
+.flaticon-email-1:before { content: "\f136"; }
+.flaticon-play-button:before { content: "\f137"; }
+.flaticon-newsletter:before { content: "\f138"; }
+.flaticon-optometrist:before { content: "\f139"; }
+.flaticon-optometrist-1:before { content: "\f13a"; }
+.flaticon-pin:before { content: "\f13b"; }
+.flaticon-place:before { content: "\f13c"; }
+.flaticon-shield:before { content: "\f13d"; }
+.flaticon-best:before { content: "\f13e"; }
+.flaticon-return:before { content: "\f13f"; }
+    
+    $font-Flaticon-optical: "\f100";
+    $font-Flaticon-eye: "\f101";
+    $font-Flaticon-optical-1: "\f102";
+    $font-Flaticon-eye-1: "\f103";
+    $font-Flaticon-glasses: "\f104";
+    $font-Flaticon-eyeglasses: "\f105";
+    $font-Flaticon-eye-2: "\f106";
+    $font-Flaticon-vision: "\f107";
+    $font-Flaticon-optical-shop: "\f108";
+    $font-Flaticon-optical-2: "\f109";
+    $font-Flaticon-optics: "\f10a";
+    $font-Flaticon-optical-3: "\f10b";
+    $font-Flaticon-optics-1: "\f10c";
+    $font-Flaticon-vision-1: "\f10d";
+    $font-Flaticon-observation: "\f10e";
+    $font-Flaticon-optical-4: "\f10f";
+    $font-Flaticon-optical-5: "\f110";
+    $font-Flaticon-optical-6: "\f111";
+    $font-Flaticon-optic: "\f112";
+    $font-Flaticon-vision-2: "\f113";
+    $font-Flaticon-view: "\f114";
+    $font-Flaticon-eye-exam: "\f115";
+    $font-Flaticon-contact-lens: "\f116";
+    $font-Flaticon-visual: "\f117";
+    $font-Flaticon-glasses-1: "\f118";
+    $font-Flaticon-eye-3: "\f119";
+    $font-Flaticon-eyeglasses-1: "\f11a";
+    $font-Flaticon-computer: "\f11b";
+    $font-Flaticon-view-1: "\f11c";
+    $font-Flaticon-vision-3: "\f11d";
+    $font-Flaticon-eyeglasses-2: "\f11e";
+    $font-Flaticon-ophthalmology: "\f11f";
+    $font-Flaticon-optical-7: "\f120";
+    $font-Flaticon-eye-test: "\f121";
+    $font-Flaticon-glasses-2: "\f122";
+    $font-Flaticon-eye-4: "\f123";
+    $font-Flaticon-refraction: "\f124";
+    $font-Flaticon-eye-exam-1: "\f125";
+    $font-Flaticon-glasses-3: "\f126";
+    $font-Flaticon-dropper: "\f127";
+    $font-Flaticon-eyeglasses-3: "\f128";
+    $font-Flaticon-oculist: "\f129";
+    $font-Flaticon-doctor: "\f12a";
+    $font-Flaticon-doctor-1: "\f12b";
+    $font-Flaticon-eye-exam-2: "\f12c";
+    $font-Flaticon-eye-test-1: "\f12d";
+    $font-Flaticon-medical-report: "\f12e";
+    $font-Flaticon-medical-report-1: "\f12f";
+    $font-Flaticon-medicines: "\f130";
+    $font-Flaticon-medicine: "\f131";
+    $font-Flaticon-phone-call: "\f132";
+    $font-Flaticon-location: "\f133";
+    $font-Flaticon-placeholder: "\f134";
+    $font-Flaticon-email: "\f135";
+    $font-Flaticon-email-1: "\f136";
+    $font-Flaticon-play-button: "\f137";
+    $font-Flaticon-newsletter: "\f138";
+    $font-Flaticon-optometrist: "\f139";
+    $font-Flaticon-optometrist-1: "\f13a";
+    $font-Flaticon-pin: "\f13b";
+    $font-Flaticon-place: "\f13c";
+    $font-Flaticon-shield: "\f13d";
+    $font-Flaticon-best: "\f13e";
+    $font-Flaticon-return: "\f13f";

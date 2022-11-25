@@ -1,0 +1,12 @@
+{% if icon.iconSet == 'Flaticon' %}
+    <{{ tag }} class="flaticon flaticon-{{ icon.glyphName|split('-')|slice(1)|join('-') }} {{ class }}"></{{ tag }}>
+
+{% elseif icon.iconSet == 'themify' %}
+    {% set glyph = icon.glyphName|replace({"uni" : ""}) %}
+    <{{ tag }} class="themifyicon ti-{{ glyph }} {{ class }}">
+        <style type="text/css">.ti-{{ glyph }}::before {content: "\{{ glyph }}";}</style>
+    </{{ tag }}>
+
+{% else %}
+    <{{ tag }} class="fa fa-{{ icon.glyphName|replace({"_sign" : " ", "_" : "-"}) }} {{ class }}"></{{ tag }}>
+{% endif %}

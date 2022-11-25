@@ -1,0 +1,8 @@
+[
+	{"label" : "Default", "value" : "", "default": "true"},
+	{"label" : "Full", "value" : "full", "classes": "w-100"},
+	{"label" : "Container", "value": "container", "classes" : "container"},
+	{"label" : "75%", "value": "75", "classes" : "w-75"},
+	{"label" : "50%", "value": "50", "classes" : "w-50"},
+	{"label" : "25%", "value": "25", "classes" : "w-25"}
+]

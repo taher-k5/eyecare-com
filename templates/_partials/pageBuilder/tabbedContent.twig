@@ -1,0 +1,84 @@
+{#
+==================================================
+    Tabbed Content (tabbedContent)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Tab (tab) [Child]
+            - Tab Name (tabName)
+        Children BLocks:
+        - Any top-level blocks
+        - Background Color (backgroundColor)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default(null),
+    paddingBottom.classes|default(null),
+    "ttm-bgcolor-grey"
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="row">
+        <div class="col-lg-10 col-md-10 offset-lg-1 offset-md-1">
+            <div class="ttm-tabs ttm-tab-color-grey ttm-tab-style-01 res-991-margin_top30 clearfix">
+                {% for block in block.children.all() %}
+                {% if loop.first %}
+                <ul class="text-center tabs">
+                {% endif %}
+
+                    <li class="tab{% if loop.index == 1 %} active{% endif %}">
+                        <a class="px-5" href="">
+                            {{ block.tabName }}
+                        </a>
+                    </li>
+
+                {% if loop.last %}
+                </ul>
+                {% endif %}
+                {% endfor %}
+
+                {% for block in block.children.all() %}
+                    {% if loop.first %}
+                        <div class="content-tab">
+                    {% endif %}
+
+                            <div class="content-inner text-left{% if loop.index == 1 %} active{% endif %}">
+                                {% for block in block.children.all() %}
+                                    {% include "_partials/pageBuilder/" ~ block.type %}
+                                {% endfor %}
+                            </div>
+
+                    {% if loop.last %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

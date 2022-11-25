@@ -1,0 +1,374 @@
+dateModified: 1628945711
+email:
+  fromEmail: mufi@siebird.com
+  fromName: 'Sanspareil Eyecare'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0a53dbd8-7522-43e6-8f8b-663c3913d340: 'Background Color' # Background Color
+    0c82d121-aaa8-4471-b4b7-8144f2087132: 'Call To Action' # Call To Action
+    0df3979b-8d6a-4464-aa5f-5e3abe250f1c: 'Call To Action' # Call To Action
+    0e2a5bae-4262-465a-bf33-33ea88f5c73c: 'Image Content With Listing' # Image Content With Listing
+    1a2c2278-dc33-459c-a1ca-66a66a92095e: Answer # Answer
+    1c925cb0-5b11-4512-a2da-90aad8da66dd: 'Video Sliders' # Video Sliders
+    1d8ffe9b-3be0-4173-b1e5-ca43ba6de88a: 'Working Hours' # Working Hours
+    1e6aac40-63db-471f-b306-083b52f834e9: Pages # Pages
+    1f02c18e-2948-4ea3-9d04-26820f365535: List # List
+    2b2b8169-8666-4b51-a8fd-6a529c04c854: 'Background Image' # Background Image
+    2c030db1-12c5-4e99-8a24-637199dab086: Listing # Listing
+    2c2850f7-4457-45d8-8ae0-65a4c01bc69f: 'Mechanicsburg Eye' # Mechanicsburg Eye
+    02cfd546-2a5a-4c8d-adfd-05a147f44f96: Heading # Heading
+    2dc2fb9d-3273-4a13-9b7c-3ff580f8fab5: Eyebrow # Eyebrow
+    2f36b571-9b25-41cb-a9c0-f204242ddc39: 'Simple Form' # Simple Form
+    2f807797-7b2d-41a0-b6c8-c52db33f9976: 'Button Color' # Button Color
+    3c9c538d-58d3-4326-af51-3eae122d2ac7: Footnote # Footnote
+    3c95a0a5-4a21-4a26-8171-f1233740dfa6: Buttons # Buttons
+    3cda34c2-00da-4ecd-a4f1-1e83f2081003: 'Opening Time' # Opening Time
+    3cffc0ac-70f7-4199-852f-b548eda6fea4: 'Overlay Text' # Overlay Text
+    4a94ceb8-d21d-4a04-a1f0-1e693e17e766: Testimonials # Testimonials
+    4ef00dd1-7423-482c-b4e4-03f113077a9b: 'Featured Card' # Featured Card
+    04f7cfca-a3ee-40f8-9ed6-e5fa9f81d924: Sidenote # Sidenote
+    5fd03c49-057d-404f-bf92-e78039e66854: 'Page Builder' # Page Builder
+    6b1c5fc7-49b7-457d-8e39-8371ccd72454: Button # Button
+    6be7af67-6034-4891-9542-be7677dddfa9: Lists # Lists
+    6ea5de5e-5490-4e43-b3bd-4e2924b28177: Team # Team
+    6eff2f43-672e-4cb9-8ed2-3fb193f854b3: FAQs # FAQs
+    6f29f459-0c65-4ecf-9533-75821c8c80fd: Address # Address
+    7a06f19b-b2e7-4422-9edf-7d515e42c390: 'End Time Mon-Fri' # End Time Mon-Fri
+    7b982403-9bd8-4bfb-a316-26d006986747: 'Working Hours' # Working Hours
+    7e72bc86-3280-4840-bc02-3de6c726f0ac: Tab # Tab
+    7e917a88-8fab-4be3-a735-5a9bbd77cc60: List # List
+    7f1d03d5-b855-4283-9600-dbba5b69d4f1: 'Tabbed Content' # Tabbed Content
+    8a88dc9e-d347-45fd-91a5-516debdcb33d: Neo # Neo
+    8bbfa56c-cff9-4a3d-901d-0fb1b0f5990d: Limit # Limit
+    8ee286bb-4691-4e6a-9fa2-e176334a97d6: 'Start Time Sat-Sun' # Start Time Sat-Sun
+    8faf3b28-0afb-4262-ae1c-a253a4591c3f: Team # Team
+    9a2824a5-d9f3-4ea4-9c82-dd4c96239161: 'Advance Sliders' # Advance Sliders
+    9c082bb5-9269-4b6e-9d2e-5a5237563174: Icon # Icon
+    9c9f5539-fd20-4ac0-819e-f0ef99e399db: Images # Images
+    9deb4cc8-103d-40f3-a4ff-b80fda67dce5: Number # Number
+    9f736465-9550-4130-9761-e2fc1dd034d0: Heading # Heading
+    11d77e24-a31c-4f20-8dff-6f54b85283df: 'York Eye' # York Eye
+    18c3f507-1953-45aa-a309-8637ba7bad6d: 'Form With Content' # Form With Content
+    24e9d07e-1ac8-4b3c-96a8-314b0a89f24f: 'Video Slider' # Video Slider
+    30dcaead-f602-4a31-bab1-91a7b6672d1f: 'Cta Builder' # Cta Builder
+    32c4ed94-dbe9-4921-8aa5-b65815d3029d: 'Featured Content' # Featured Content
+    47b4b9d5-4a09-4227-a51f-bb23b1f83f5e: CTA # CTA
+    48a96e0e-f6e9-4760-81ac-c89375fe7085: General # General
+    50c96628-e1e9-4dce-aa4d-42f9d0ad838c: Card # Card
+    52a23e76-4178-43d1-a40f-e40b394cece7: Testimonial # Testimonial
+    55b924f8-8277-46c7-bbab-e3d68d363f3e: 'Heading + Text' # Heading + Text
+    57f5d18c-c7d9-402e-bc58-7dc5dd4c39a2: 'End Time Sat-Sun' # End Time Sat-Sun
+    59c47b1d-4f47-4d7d-bb97-72df688c6a1b: 'Padding Bottom' # Padding Bottom
+    62ad7736-18a8-4f92-8634-a8d4c7949bfc: 'Main Heading' # Main Heading
+    70c5e6a8-b193-4f20-abde-150eafb66647: Statistics # Statistics
+    78a23676-dd2b-4f17-b1d4-ed718414798a: Lists # Lists
+    78e12444-c096-4f24-9160-02f33964e5d6: 'Margin Bottom' # Margin Bottom
+    84b9a20e-52f8-448e-bf11-76a58301947d: 'Script Label' # Script Label
+    84d987de-9f4e-42e5-930d-74f9ccd8436c: Opacity # Opacity
+    87c2c830-f221-4e0f-9e8b-44d03eade914: 'Email Address' # Email Address
+    89bd2f59-74ed-4073-ac20-8ce39dca2c8b: 'Embed Code' # Embed Code
+    89ec2dbc-b44f-40d8-b224-548937d554dc: 'Carlislevision Care' # Carlislevision Care
+    91a5639e-0e8e-4fb7-9df7-d826778fea90: 'Main Eyebrow ' # Main Eyebrow 
+    92c304c4-d628-4dbb-b738-a3d64d38e198: Text # Text
+    92e05131-b9ea-4f18-9627-0641b52c68b6: Multimedia # Multimedia
+    92f7cbe4-7f62-400f-bd5b-9911e8b457fc: FAQ # FAQ
+    98cb052b-55e3-4fc0-be85-87706556b7a7: Icon # Icon
+    99fe12b8-19d0-442d-a184-3f035c8fd3a8: 'Margin Top' # Margin Top
+    153c66a5-ed31-417a-a0eb-e272b787f029: 'Image Height' # Image Height
+    218c71d7-fdaa-426a-a3ed-237d10fcdea1: Icon # Icon
+    255e566e-6f1a-4f55-beb2-0b74c81123e2: Map # Map
+    330e2a26-c14d-448b-aad2-e5ca2fde8781: Rating # Rating
+    0402e1dd-d119-458e-9ee2-d1c8c16d6005: Text # Text
+    441b62da-5060-437d-a460-dc7900c4f560: List # List
+    572f72d3-9a30-4e9a-8d1e-1f86a585a667: 'Content Slider' # Content Slider
+    724c8bf2-0fed-46e4-84eb-e0ada771be37: Map # Map
+    742cee9e-0d18-4762-858d-adb0b404d053: Common # Common
+    773c15e7-c490-4798-be49-577294db93ca: Link # Link
+    802ef1e8-b4b6-41fb-bfe8-b10d05b60461: 'Main Text' # Main Text
+    820beb7b-ccbe-4ce2-a95d-e8143d49cf51: 'Padding Top' # Padding Top
+    832c6585-7373-4508-9f15-69ca7857a510: Statistic # Statistic
+    856cf97e-893e-44d5-8573-77ae3f49ee98: Number # Number
+    889c8773-a34b-4d17-8f39-fe19d23a0542: CTA # CTA
+    895a4ebd-b396-421f-a9a8-c63c8b8b0615: 'Image Content With Full Width' # Image Content With Full Width
+    906e9666-1503-4f1d-abf3-79f34ce24b4f: Slider # Slider
+    1954b761-11f4-4c2d-9417-b96a3e6220d6: Header # Header
+    3065fafe-fa39-4311-a821-cb1c8b75b852: Form # Form
+    3503be21-971a-490a-912f-d957de769d9b: 'Image Content' # Image Content
+    3654cd16-dd7e-447f-90d6-94fc6480f208: 'Main Navigation' # Main Navigation
+    5341b80b-9b26-425d-a2f3-2f9c877aa7f4: Scripts # Scripts
+    7056e893-c6f7-4a42-bcd6-728d60853b0b: Stack # Stack
+    9273d1a4-c5c3-4497-a740-d3df11420fc6: Hero # Hero
+    9334ec45-c4ad-4749-b1d3-dfc1be0668d7: Designation # Designation
+    9946fa71-feae-4847-bce7-29c8d4b1003f: Text # Text
+    15549e32-2632-47b5-adf7-81bb8dd27a58: 'Social Links' # Social Links
+    25033e87-ef3a-4db6-85a2-c9edbeaad980: Location # Location
+    044209ca-2ffe-44a2-bcd7-c08d84796633: Testimonials # Testimonials
+    55442c1d-80f1-453b-b3de-d1bdee5d2ee3: Image # Image
+    68396f07-1351-45c7-a854-065c5d8f1093: 'Progress Bar' # Progress Bar
+    86444b26-b516-4956-928f-88baf6478ba4: 'Testimonial Slider With Statistics' # Testimonial Slider With Statistics
+    90388efd-d595-4e5c-9c4f-5e39d4e56d9c: FAQs # FAQs
+    099894d9-8f0c-4956-97d7-7a78d417bea5: Buttons # Buttons
+    0422316c-1df4-4a33-9744-7e8c1ddf15ce: Components # Components
+    425199fc-1a4f-4a25-ab29-66c431ff91db: 'Wheatlyn Eyecare' # Wheatlyn Eyecare
+    579622ad-24b8-4af6-b960-64573012dbce: 'Mobile Number' # Mobile Number
+    668651cd-e726-4409-a61c-84c15741c1f3: Spacial # Spacial
+    835834fd-2e3d-4e00-abb8-b0636fe3f233: Testimonials # Testimonials
+    863622c9-e888-4686-a749-8d46f45a8576: Heading # Heading
+    3796759d-eb6f-439a-89a8-e232a2109109: Button # Button
+    18387511-2d9b-4f85-a857-c1b951c40d18: 'Hero Listing' # Hero Listing
+    a4b75343-52a5-4067-b24c-0ff9dc3d76b0: 'Progress Bar' # Progress Bar
+    a9bb3391-bf66-40f2-9595-71ee5a08d300: Scripts # Scripts
+    a236b35d-b2e6-40c6-b7fa-526f9e520a57: Logos # Logos
+    a38526a4-2d79-4b20-a611-85ca0c61ac4a: Form # Form
+    aa643ce7-4703-4005-943c-dd8725244c6f: 'CTA With Video' # CTA With Video
+    ab77caa1-0229-45cd-80a2-dccce4ba6fc8: 'Two Columns?' # Two Columns?
+    ab91e612-1418-4344-983e-82e2016bb871: Position # Position
+    ac6780c9-b638-4482-99fa-c9ab938cfde7: 'Image Content With Sidenote' # Image Content With Sidenote
+    ad3fabb2-2220-465d-9ca3-bd1ce5741d1a: 'Simple Silders' # Simple Silders
+    b0ac9577-2681-4121-b210-300e940c3050: 'Image Content With Video' # Image Content With Video
+    b028a18f-be2c-4a47-a2b9-33a5e06519f1: Question # Question
+    b3e9295f-bd1a-41d9-aa0a-f612c72c5647: Statistics # Statistics
+    b6b8ab40-fc5e-4326-98ac-afb361279ea8: Logo # Logo
+    b6d6d06d-44ed-4311-9895-1f3b2b8de6db: Button # Button
+    b26c3904-e4ee-4748-9513-42975e85cfe8: Heading # Heading
+    b59fa7bc-9f51-48ff-ba98-1b40677d968d: Number # Number
+    b49699b5-be20-49db-95f8-299e9b64f511: 'Image Size' # Image Size
+    b9713009-c5b7-4a83-8416-2d49cd259ae3: Statistic # Statistic
+    bb99de79-0344-407e-9e92-6dffaa48a5dc: 'Form Listing' # Form Listing
+    bb8709a1-5516-49b4-bf7e-4758fd82e0d4: 'Sidebar Images' # Sidebar Images
+    bb9169b8-d78e-423f-9c3a-2f76da36b492: 'Listing Cards' # Listing Cards
+    bbff2621-0a5d-42da-a5c9-6b27dac0b119: 'Content Sliders' # Content Sliders
+    bd369a82-bc06-4d83-bb96-7ed5638960ab: 'Featured Cards' # Featured Cards
+    bded40a2-bfe3-44e9-8b64-a5e2dc1467cd: 'Start Time Mon-Fri' # Start Time Mon-Fri
+    be4c1033-9653-4e04-abf5-515058b5d059: Basic # Basic
+    c3bfcab0-23d3-4537-8d09-b3b7117b7e08: Team # Team
+    c4a06995-08f3-458f-abb7-8f597b7b5212: List # List
+    c8f82442-84ea-4e3b-a796-1e4c0fe5d68b: Team # Team
+    c16905a9-20c7-4102-bf93-c55bd552dba1: Heading # Heading
+    cab2cfaf-a249-4e33-ba04-20f671c98363: Description # Description
+    cb1c0744-a882-466c-9c97-c5fe4fcdb27b: Heading # Heading
+    ceaee099-c964-491c-8d9a-b610df472aa6: 'Simple Slider' # Simple Slider
+    cebb15f0-3aaa-4f85-bdf3-0b45962c1d78: Text # Text
+    cefcdd6b-cf5b-4210-92b0-15e291c6a380: Testimonials # Testimonials
+    cf1b0da2-ab9e-4cef-b91e-f3c797dd6a8b: 'Social Links' # Social Links
+    d0fee079-8447-4fd4-9e13-78c26af08c34: 'Closing Time' # Closing Time
+    d056edb3-0b8c-4a3e-8b47-f29e2476ac30: 'Sanspareil Eyecare' # Sanspareil Eyecare
+    d2aefd2b-c13b-478a-b40f-4a4cd73e3321: Image # Image
+    d3e7bede-e2bc-4937-a84a-c84ddce50401: Text # Text
+    d621d3a7-b4be-4583-bd12-172901b44170: 'Progress Bar' # Progress Bar
+    daa7ba59-6924-4c84-8575-f1d0a1718dfa: Pages # Pages
+    db7881e7-5069-47d7-a220-7cdce993a94a: Scripts # Scripts
+    dc163ee3-1ad3-4b8c-a336-2e0bb231caae: Container # Container
+    dd44fb60-ae69-47ed-9211-8382d7d7efdb: Heading # Heading
+    dd359752-57c2-43a5-bd75-94a1cc56d935: CTA # CTA
+    dfd2434c-49f9-41af-ad36-28194fa72ffb: Icon # Icon
+    e0e3a7da-edd7-4419-8678-10d9464fbe6e: Heading # Heading
+    e3a4a8ab-6d19-4f3e-9ace-88e1460b5b5f: Hero # Hero
+    e8c8a29f-6c66-46de-907b-c52b4d890d10: Global # Global
+    e12ef773-4f4d-4cff-a11c-396ee40e709e: 'Tab Name' # Tab Name
+    e73bdb1d-4ebb-469a-8466-3703dfc946fa: Button # Button
+    e95e8447-a287-416a-8d96-1fd20a27b63f: Text # Text
+    e700cf41-e0b8-4888-b43c-3c1148877990: 'Video URL' # Video URL
+    e959c978-80f6-426c-aea3-2bfe10b65291: Closed # Closed
+    e1248aac-963b-4ea4-9cba-42b3cfed333d: 'Footer Navigation' # Footer Navigation
+    e8510630-6833-4216-bda5-e203ecd8182e: Icon # Icon
+    eaaa7b2e-72ee-4e31-9772-a02f573838ec: 'Advance Slider' # Advance Slider
+    ec8441d3-3b83-4517-aefe-5cb91bd7a9df: '  Listing Content' #   Listing Content
+    ecee0b19-3140-4700-a350-c14e1563e81c: Listing # Listing
+    ee57fc5e-2eae-4c2d-a550-66bc010ed2e0: Lists # Lists
+    efd3cf89-cb48-418b-9181-cd0e196b1150: Number # Number
+    f08643d1-7659-492a-b797-de030cb6376c: 'Form Heading' # Form Heading
+    f5d4e296-5a08-4a14-bab8-9a7aceb94d40: Documents # Documents
+    f5e76fac-d559-4107-8681-23c7a7cbc0f0: Text # Text
+    f12b215f-06c7-4870-acc7-96d2c64083b3: 'Simple Hero' # Simple Hero
+    f28e9dc1-8880-4b93-acb4-369ac90d14ad: SEO # SEO
+    f76b83a7-321d-48e9-aba9-d9c0915fdb5b: Icon # Icon
+    f81e8129-b16a-4906-8986-6417395a3b33: Day # Day
+    f2183e9c-f836-4020-a7a0-44223806ae0a: 'Image Content With Testimonial' # Image Content With Testimonial
+    ffd2466a-2aed-48ed-af59-0f6b498f09af: Footer # Footer
+plugins:
+  blitz:
+    edition: standard
+    enabled: true
+    licenseKey: E9SB9M8S6BGOKI2RRFMR9LSX
+    schemaVersion: 3.10.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  freeform:
+    edition: lite
+    enabled: true
+    licenseKey: 1X90RG8N3SVE00AWFTYIINRT
+    schemaVersion: 3.3.2
+    settings:
+      ajaxByDefault: '1'
+      alertNotificationRecipients: ''
+      autoScrollToErrors: true
+      badgeType: all
+      blockedEmails: null
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: null
+      blockedKeywords: null
+      blockedKeywordsError: 'Invalid Entry Data'
+      clientDigestFrequency: 1
+      clientDigestRecipients: ''
+      customErrorMessage: null
+      customHoneypotName: null
+      defaultTemplates: '1'
+      defaultView: dashboard
+      digestFrequency: 1
+      digestOnlyOnProduction: false
+      digestRecipients: ''
+      displayFeed: true
+      emailTemplateDirectory: null
+      emailTemplateStorage: db
+      fieldDisplayOrder: name
+      fillWithGet: false
+      footerScripts: false
+      formFieldShowOnlyAllowedForms: false
+      formSubmitDisable: true
+      formSubmitExpiration: null
+      formTemplateDirectory: _freeform
+      formattingTemplate: default.twig
+      freeformHoneypot: true
+      freeformHoneypotEnhancement: false
+      hideBannerDemo: false
+      hideBannerOldFreeform: false
+      minimumSubmitTime: null
+      pluginName: ''
+      purgableSpamAgeInDays: null
+      purgableSubmissionAgeInDays: null
+      purgableUnfinalizedAssetAgeInMinutes: 180
+      recaptchaBehaviour: display_error
+      recaptchaEnabled: false
+      recaptchaErrorMessage: 'Please verify that you are not a robot.'
+      recaptchaKey: null
+      recaptchaLazyLoad: false
+      recaptchaMinScore: 0.5
+      recaptchaSecret: null
+      recaptchaSize: normal
+      recaptchaTheme: light
+      recaptchaType: v2_checkbox
+      rememberPageSubmitOrder: true
+      removeNewlines: false
+      renderFormHtmlInCpViews: '1'
+      salesforce_client_id: null
+      salesforce_client_secret: null
+      salesforce_password: null
+      salesforce_username: null
+      scriptInsertLocation: footer
+      scriptInsertType: pointers
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: false
+      showErrorsForBlockedKeywords: false
+      showTutorial: '1'
+      spamFolderEnabled: true
+      spamProtectionBehaviour: simulate_success
+      submissionThrottlingCount: null
+      submissionThrottlingTimeFrame: null
+      twigInHtml: '1'
+      twigInHtmlIsolatedMode: '1'
+      updateSearchIndexes: true
+  icon-picker:
+    edition: standard
+    enabled: true
+    licenseKey: 8WZ7U88T9UU1J2E43ZIQDTF2
+    schemaVersion: 1.0.1
+    settings:
+      enableCache: true
+      iconSetsPath: '@webroot/assets/icon'
+      iconSetsUrl: '@web/assets/icon'
+      maxIconsShown: '100'
+      redactorFieldHandle: ''
+  imager-x:
+    edition: lite
+    enabled: true
+    licenseKey: X2JO0R8067PAKGA8UNSU6WPE
+    schemaVersion: 3.0.0
+  inventory:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  linkit:
+    edition: standard
+    enabled: true
+    licenseKey: 67JEXKC275981UXFZUFKNHQL
+    schemaVersion: 1.0.8
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  mix:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    licenseKey: 5KGHHSE7VM1G11XMP732K26Z
+    schemaVersion: 1.0.21
+  neo:
+    edition: standard
+    enabled: true
+    licenseKey: N8HRUEWNPW9KQXNAJJCI1LV6
+    schemaVersion: 2.9.11
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  retour:
+    edition: standard
+    enabled: true
+    licenseKey: KM24Q9GZNDLKLT26EI4X2YE4
+    schemaVersion: 3.0.10
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: 5NWTBY442QLH0BPKZLUM46C3
+    schemaVersion: 3.0.10
+  simplemap:
+    edition: pro
+    enabled: true
+    licenseKey: ZWGM2NJVCKFR2EO6MCP80K00
+    schemaVersion: 3.4.2
+    settings:
+      apiKey: null
+      browserApiKey: null
+      disablePopulateMissingFieldData: false
+      geoLocationAutoRedirect: false
+      geoLocationCacheDuration: 5270400
+      geoLocationService: none
+      geoLocationToken: ''
+      geoService: nominatim
+      geoToken: ''
+      mapTiles: openstreetmap
+      mapToken: ''
+      serverApiKey: null
+      unrestrictedApiKey: null
+      w3wEnabled: ''
+      w3wToken: ''
+  super-dynamic-fields:
+    edition: standard
+    enabled: true
+    licenseKey: SMSZ6FJBQO238DTWBVPKOUUA
+    schemaVersion: 1.0.5
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+system:
+  edition: pro
+  live: true
+  name: 'Sanspareil Eyecare'
+  retryDuration: null
+  schemaVersion: 3.7.7
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

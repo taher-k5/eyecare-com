@@ -1,0 +1,9 @@
+baseUrl: $SECONDRY_SITE_URL
+enabled: true
+handle: mechanicsburgEye
+hasUrls: true
+language: en-US
+name: 'Mechanicsburg Eye'
+primary: false
+siteGroup: d056edb3-0b8c-4a3e-8b47-f29e2476ac30 # Sanspareil Eyecare
+sortOrder: 2

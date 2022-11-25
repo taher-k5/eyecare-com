@@ -1,0 +1,10 @@
+childBlocks:
+  - contentSlider
+field: e3a4a8ab-6d19-4f3e-9ace-88e1460b5b5f # Hero
+handle: contentSliders
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Content Sliders'
+sortOrder: 4
+topLevel: true

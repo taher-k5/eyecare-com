@@ -1,0 +1,19 @@
+columnSuffix: qhsyaduz
+contentColumnType: text
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: overlayText
+instructions: ''
+name: 'Overlay Text'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

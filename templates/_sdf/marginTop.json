@@ -1,0 +1,9 @@
+[
+  {"value" : "", "label" : "Default", "default" : "true"},
+  {"value" : "none", "label" : "None", "classes" : "mt-0"},
+  {"value" : "extra-small", "label" : "Extra Small", "classes" : "mt-extraSmall"},
+  {"value" : "small", "label" : "Small", "classes" : "mt-small"},
+  {"value" : "medium", "label" : "Medium", "classes" : "mt-medium"},
+  {"value" : "large", "label" : "Large", "classes" : "mt-large"},
+  {"value" : "extra-large", "label" : "Extra Large", "classes" : "mt-extraLarge"}
+]

@@ -1,0 +1,138 @@
+{#
+==================================================
+    Slider (slider)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Text (text)
+        - Listing Cards (listingCards) [Super Table]
+            - Icon (icon)
+            - Heading (heading)
+            - Text (text)
+            - Lists (lists) [Matrix]
+                - Text (text)
+            - Button (button)
+        - Background Color (backgroundColor)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default('ttm-bgcolor-grey') %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or last ? 'pb-medium'),
+    bgColor
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title title-style-center_text">
+                    {% if block.eyebrow|length or block.heading|length %}
+                    <div class="title-header">
+                        {% if block.eyebrow|length %}
+                        <h3 class="eyebrowColor">{{ block.eyebrow }}</h3>
+                        {% endif %}
+
+                        {% set textColor = bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-textcolor-darkgrey' : 'ttm-textcolor-skincolor' %}
+                        {% set params = {
+                            text: block.heading,
+                            class: textColor,
+                        } %}
+                        {% if block.heading|length %}
+                        <h2 class="title {{ bgColor == 'ttm-bgcolor-grey' ? '' : 'text-white' }}">{{ render.replaceUnderscores(params) }}</h2>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    {% if block.heading|length %}
+                    <div class="heading-seperator"><span></span></div>
+                    {% endif %}
+
+                    {% if block.text|length %}
+                    <div class="title-desc">
+                        {{ block.text }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% for block in block.listingCards.all() %}
+        {% if loop.first %}
+        <div class="row slick_slider slick-dots-style2" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":true, "infinite":true, "responsive":[{"breakpoint":992,"settings": {"slidesToShow": 2}},{"breakpoint":620,"settings":{"slidesToShow": 1}}]}'>
+        {% endif %}
+            {% set count = loop.length %}
+            <div class="{{ count > 2 ? 'col-lg-4' : '' }}">
+                <div class="featured-icon-box icon-align-top-content style3">
+                    <div class="featured-icon">
+                        <div class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor ttm-icon_element-size-lg">
+                            {% set params = {
+                                icon: block.icon
+                            } %}
+                            {{ render.icon(params) }}
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        {% if block.heading|length %}
+                        <div class="featured-title">
+                            <h3 class="{{ bgColor == 'ttm-bgcolor-skincolor' or bgColor == 'ttm-bgcolor-darkgrey' ? 'ttm-textcolor-skincolor' : '' }}">
+                                {{ block.heading }}
+                            </h3>
+                        </div>
+                        {% endif %}
+
+                        {% if block.text|length %}
+                        <div class="featured-desc {{ bgColor == 'ttm-bgcolor-skincolor' or bgColor == 'ttm-bgcolor-darkgrey' ? 'textColor' : '' }}">
+                            {{ block.text }}
+                        </div>
+                        {% endif %}
+
+                        {% for childBlock in block.lists.all() %}
+                        <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor ttm-textcolor-darkgrey">
+                            <li><i class="fa fa-check-circle-o"></i>
+                                <div class="ttm-list-li-content">
+                                    {{ childBlock.text }}
+                                </div>
+                            </li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% if loop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>

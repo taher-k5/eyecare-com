@@ -1,0 +1,17 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: ctaBuilder
+instructions: ''
+name: 'Cta Builder'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxLevels: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: none
+  wasModified: false
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

@@ -1,0 +1,101 @@
+{#
+==================================================
+    Simple Slider (simpleSlider)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Image (backgroundImage)
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Text (text)
+        - Buttons (buttons)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set id = "block-#{block.getId()}" %}
+{% set imgId = 'img-' ~ block.getId() %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: '680',
+    height: '650',
+    quality: 85
+} %}
+
+{% if loop.first %}
+<section class="banner-slider banner-slider-option-3">
+{% endif %}
+    <div id="{{ imgId }}" class="bg-image clearfix ttm-bg bs-repeter">
+        {% if block.videoUrl|length %}
+        <div class="video-wrap">
+            <iframe class="video autoplay" allowfullscreen allow="autoplay" src="{{ block.videoUrl }}"></iframe>
+        </div>
+        {% elseif block.backgroundImage|length %}
+            {% set bgImage = block.backgroundImage.one() %}
+            {% set bgImage = {
+                image: bgImage,
+                selctor: imgId,
+            } %}
+            {{ render.setBackgroundImage(bgImage) }}
+        {% endif %}
+        {% set image = block.image.one() %}
+        <div class="{{ image|length ? 'justify-content-end' }} no-gutters row">
+            {% if block.image|length %}
+            <div class="col-md-4 d-md-block d-none position-relative z-index-2">
+                {% set params = {
+                    image: image.getUrl(thumb),
+                    alt: image.title,
+                    class: "h-full"
+                } %}
+                {{ render.setImage(params) }}
+            </div>
+            {% endif %}
+            <div class="{{ image|length ? 'col-md-7' : 'col-md-6 offset-md-3' }} video-col d-flex align-items-center text-center">
+                <div class="bs-content text-md-left text-center">
+                    {% set textColor = 'ttm-textcolor-skincolor' %}
+                    {% set params = {
+                        text: block.eyebrow,
+                        class: textColor,
+                    } %}
+                    {% if block.eyebrow|length %}
+                    <div href="#" class="top-link anim-block-1 fade-left">{{ render.replaceUnderscores(params) }}</div>
+                    {% endif %}
+
+                    {% set textColor = 'ttm-textcolor-skincolor' %}
+                    {% set params = {
+                        text: block.heading,
+                        class: textColor,
+                    } %}
+                    {% if block.heading|length %}
+                    <h1 class="title-big anim-block-2 fade-left">{{ render.replaceUnderscores(params) }}</h1>
+                    {% endif %}
+
+                    {% if block.text|length %}
+                    <div class="mt-4 d-md-block d-none anim-block-3 fade-top">{{ block.text }}</div>
+                    {% endif %}
+
+                    {% for item in block.buttons.all() %}
+                    {% if loop.first %}
+                    <div class="btn-wrap d-inline-flex flex-wrap justify-content-sm-start justify-content-center mt-4 anim-block-5 fade-top">
+                    {% endif %}
+                        {% set extras = item.buttonColor.getExtras() %}
+                        {% set options = {
+                            button: item.button,
+                            color: extras.classes,
+                            class: 'mr-3 mb-3'
+                        } %}
+                        {{ render.createButton(options) }}
+                    {% if loop.last %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% if loop.last %}
+</section>
+{% endif %}

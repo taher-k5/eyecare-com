@@ -1,0 +1,9 @@
+{% set form = craft.freeform.form(craft.app.request.get('form')) %}
+{{ {
+    hash: form.hash,
+    csrf: {
+        name: craft.app.config.general.csrfTokenName,
+        value: craft.app.request.csrfToken,
+    },
+    returnUrl: form.returnUrl
+}|json_encode|raw }}

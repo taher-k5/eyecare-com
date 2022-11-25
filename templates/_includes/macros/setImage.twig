@@ -1,0 +1,35 @@
+{% if image|length %}
+{% set imgWidth = width ? "width = #{width|default(null)}" : null %}
+{% set imgHeight = height ? "height = #{height|default(null)}" : null %}
+
+{% if image.extension|default(null) in ["svg", "gif"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg", "gif"]) %}
+	<img src="{{ image.getUrl()|default(image) }}" loading='lazy' {% if id|length %}id="{{ id }}"{% endif %} {% if class|length %}class="{{ class }}"{% endif %} {% if alt|length %}alt="{{ alt }}"{% endif %}>
+{% elseif plainImage %}
+	{% set transform = 'jpg' %}
+	{% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+	<img src="{{ transformedImages[0].url }}" type="image/jpeg" loading='lazy' {% if id|length %}id="{{ id }}"{% endif %} {% if class|length %}class="{{ class }}"{% endif %} {% if alt|length %}alt="{{ alt }}"{% endif %} />
+{% else %}
+	<picture>
+		{% if craft.imagerx.serverSupportsWebp() and craft.app.config.env != 'dev' %}
+			{% set transform = 'webp' %}
+			{% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+			{% if addSrcSet %}
+				<source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/webp">
+			{% else %}
+				<source sizes="100vw" srcset="{{ transformedImages[0].url }}" type="image/webp">
+			{% endif %}
+		{% endif %}
+
+		{% set transform = 'jpg' %}
+		{% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+
+		{% if addSrcSet %}
+			<source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/jpeg">
+		{% else %}
+			<source sizes="100vw" srcset="{{ transformedImages[0].url }}" type="image/jpeg">
+		{% endif %}
+
+		<img src="{{ craft.imagerx.placeholder({ width: 160, height: 90 }) }}" {% if alt|length %}alt="{{ alt }}"{% endif %} loading='lazy' {% if id|length %}id="{{ id }}"{% endif %} {% if class|length %}class="{{ class }}"{% endif %} {{ imgWidth }} {{ imgHeight }} />
+	</picture>
+{% endif %}
+{% endif %}

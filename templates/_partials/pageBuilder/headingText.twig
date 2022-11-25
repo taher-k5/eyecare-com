@@ -1,0 +1,83 @@
+{#
+==================================================
+	Heading + Text (headingText)
+	Variable:
+		- Block (Block)
+
+	Fields:
+		- Eyebrow (eyebrow)
+		- Heading (heading)
+		- Text (text)
+		- Background Color (backgroundColor)
+		- Margin Top (marginTop)
+		- Margin Bottom (marginBottom)
+		- Padding Top (paddingTop)
+		- Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default(null) %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or loop.last ? 'pb-medium'),
+    bgColor
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title title-style-center_text">
+                    <div class="title-header">
+                        {% if block.eyebrow|length %}
+                        <h3 class="{% if bgColor == 'ttm-bgcolor-skincolor' %}text-white-50 {% endif %}{% if bgColor != 'ttm-bgcolor-skincolor' %}eyebrowColor{% endif %}">
+                            {{ block.eyebrow }}
+                        </h3>
+                        {% endif %}
+
+                        {% set params = {
+                            text: block.heading,
+                            class: "ttm-textcolor-skincolor",
+                        } %}
+                        {% if block.heading|length %}
+                        <h2 class="fs-50">{{ render.replaceUnderscores(params) }}</h2>
+                        {% endif %}
+                    </div>
+
+                    {% if block.heading|length %}
+                    <div class="heading-seperator"><span></span></div>
+                    {% endif %}
+
+                    {% if block.text|length %}
+                    <div class="title-desc">
+                        {{ block.text }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+columnSuffix: nmjszufl
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: icon
+instructions: ''
+name: Icon
+searchable: false
+settings:
+  columnType: text
+  iconSets:
+    - 'font:Flaticon.woff'
+    - 'font:themify.woff'
+  remoteSets: ''
+  showLabels: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\iconpicker\fields\IconPickerField

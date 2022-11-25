@@ -1,0 +1,69 @@
+{#
+==================================================
+	Image (image)
+	Variable:
+		- Block (Block)
+
+	Fields:
+		- Image (image)
+		- Background Color (backgroundColor)
+		- Margin Top (marginTop)
+		- Margin Bottom (marginBottom)
+		- Padding Top (paddingTop)
+		- Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default(null) %}
+
+{% set imageSize = block.imageSize.getExtras() %}
+{% set imageHeight = block.imageHeight.getvalue()|default('300') %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or loop.last ? 'pb-medium'),
+    bgColor
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: '1600',
+    height: imageHeight,
+    quality: 85
+} %}
+
+{% if block.image|length %}
+<section {{ attr(attributes) }}>
+	<div class="text-center">
+		{% set image = block.image.one() %}
+		{% set params = {
+			image: image.getUrl(thumb),
+			alt: image.title,
+			class: imageSize.classes|default('container'),
+		} %}
+		{{ render.setImage(params) }}
+	</div>
+</section>
+{% endif %}

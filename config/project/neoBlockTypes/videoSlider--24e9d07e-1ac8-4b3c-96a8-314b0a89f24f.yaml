@@ -1,0 +1,79 @@
+childBlocks: ''
+field: e3a4a8ab-6d19-4f3e-9ace-88e1460b5b5f # Hero
+fieldLayouts:
+  313fd3f4-2506-4195-8a1f-179c90f60605:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2b2b8169-8666-4b51-a8fd-6a529c04c854 # Background Image
+            instructions: ''
+            label: ''
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d2aefd2b-c13b-478a-b40f-4a4cd73e3321 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: e700cf41-e0b8-4888-b43c-3c1148877990 # Video URL
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2dc2fb9d-3273-4a13-9b7c-3ff580f8fab5 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd44fb60-ae69-47ed-9211-8382d7d7efdb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9946fa71-feae-4847-bce7-29c8d4b1003f # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 099894d9-8f0c-4956-97d7-7a78d417bea5 # Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: videoSlider
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Video Slider'
+sortOrder: 9
+topLevel: false

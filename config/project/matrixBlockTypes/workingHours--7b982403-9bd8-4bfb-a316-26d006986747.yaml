@@ -1,0 +1,110 @@
+field: 1d8ffe9b-3be0-4173-b1e5-ca43ba6de88a # Working Hours
+fieldLayouts:
+  04ef8943-cbc3-45fd-bf48-17efaf8b2b62:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f81e8129-b16a-4906-8986-6417395a3b33 # Day
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: e959c978-80f6-426c-aea3-2bfe10b65291 # Closed
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 3cda34c2-00da-4ecd-a4f1-1e83f2081003 # Opening Time
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d0fee079-8447-4fd4-9e13-78c26af08c34 # Closing Time
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  3cda34c2-00da-4ecd-a4f1-1e83f2081003: # Opening Time
+    columnSuffix: null
+    contentColumnType: time
+    fieldGroup: null
+    handle: openingTime
+    instructions: ''
+    name: 'Opening Time'
+    searchable: false
+    settings:
+      max: null
+      min: null
+      minuteIncrement: 30
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Time
+  d0fee079-8447-4fd4-9e13-78c26af08c34: # Closing Time
+    columnSuffix: null
+    contentColumnType: time
+    fieldGroup: null
+    handle: closingTime
+    instructions: ''
+    name: 'Closing Time'
+    searchable: false
+    settings:
+      max: null
+      min: null
+      minuteIncrement: 30
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Time
+  e959c978-80f6-426c-aea3-2bfe10b65291: # Closed
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: closed
+    instructions: ''
+    name: Closed
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Lightswitch
+  f81e8129-b16a-4906-8986-6417395a3b33: # Day
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: day
+    instructions: ''
+    name: Day
+    searchable: false
+    settings:
+      genError: null
+      json: null
+      multi: false
+      template: _sdf/day.json
+      templateData: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+handle: workingHours
+name: 'Working Hours'
+sortOrder: 1

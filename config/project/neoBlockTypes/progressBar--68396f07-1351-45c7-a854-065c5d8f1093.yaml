@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 30dcaead-f602-4a31-bab1-91a7b6672d1f # Cta Builder
+fieldLayouts:
+  94ab13d9-6229-47a0-a4ff-d533bdf84b48:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a4b75343-52a5-4067-b24c-0ff9dc3d76b0 # Progress Bar
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: progressBar
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Progress Bar'
+sortOrder: 2
+topLevel: true

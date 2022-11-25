@@ -1,0 +1,201 @@
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% for block in entry.hero.level(1).all() %}
+    {% include [
+        "_partials/hero/" ~ block.type.handle
+    ] %}
+{% endfor %}
+
+ {#     <!-- banner-slider-option-1 -->
+        <section class="banner-slider banner-slider-option-1">
+            <div class="bs-repeter caption-left">
+                <picture class="bs-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-sm-9 col-lg-6 bs-col">
+                        <div class="bs-content">
+                            <h1 class="title-big anim-block-1 fade-top">We Bring</h1>
+                            <div class="title-small anim-block-2 fade-top">For Your <span>Eyes</span> Only</div>
+                            <p class="d-sm-block d-none anim-block-3 fade-top">Placing you and your safety at the heart of everything</p>
+                            <div class="service-block-wrap d-sm-flex d-none flex-wrap anim-block-4 fade-top">
+                                <a href="#" class="service-block d-flex align-items-center">
+                                    <i class="flaticon-optometrist" data-stylerecorder="true"></i>
+                                    <p class="pl-3" >Eye Examination</p>
+                                </a>
+                                <a href="#" class="service-block d-flex align-items-center">
+                                   <i class="flaticon-optometrist-1" data-stylerecorder="true"></i>
+                                    <p class="pl-3" >Contact Lens Fitting</p>
+                                </a>
+                            </div>
+                            <div class="btn-wrap d-inline-flex flex-wrap justify-content-sm-start justify-content-center mt-lg-5 mt-4 anim-block-5 fade-top">
+                                <a href="#" class="btn border">More Detail</a>
+                                <a href="#" class="btn">Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-repeter caption-right">
+                <picture class="bs-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-sm-9 col-lg-7 bs-col">
+                        <div class="bs-content">
+                            <h1 class="title-big anim-block-1 fade-top">More Real</h1>
+                            <div class="title-small anim-block-2 fade-top">Vision For a <span>Better</span> Life.</div>
+                            <p class="anim-block-3 fade-top d-sm-block d-none">Because the safety of your visual health is our primary concern, operates under strictest clinical governance</p>
+                            <div class="video-btn-wrap d-flex align-items-center justify-content-sm-start justify-content-center mt-lg-5 mt-3 anim-block-4 fade-top">
+                                <a href="#" class="video-btn d-flex">
+                                    <i class="tm-vc_icon_element-icon fa fa-play"></i>
+                                </a>
+                                <div>
+                                    <h5 class="h5">Watch Video</h5>
+                                    <p class="d-md-block d-none">Health is our primary concern</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<br><br>
+
+        <!-- banner-slider-option-2 -->
+        <section class="banner-slider banner-slider-option-2">
+            <div class="bs-repeter">
+                <picture class="bs-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-xl-4 col-sm-7 bs-col">
+                        <div class="bs-content">
+                            <a href="#" class="top-link d-sm-block d-none anim-block-1 fade-left">We bring world into focus</a>
+                            <h1 class="title-big anim-block-2 fade-left">High Quality Optometrist Eye Clinic</h1>
+                            <hr class="anim-block-3 fade-top d-sm-block d-none">
+                            <p class="d-sm-block d-none anim-block-4 fade-top">We believe eye care should be attainable and that is reflected in the way we partner primary eye care. </p>
+                            <div class="btn-wrap d-inline-flex flex-wrap justify-content-sm-start justify-content-center mt-4 anim-block-5 fade-top">
+                                <a href="#" class="btn white-bg">Meet Our Doctors</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-repeter">
+                <picture class="bs-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-xl-4 col-sm-7 bs-col">
+                        <div class="bs-content">
+                            <a href="#" class="top-link d-sm-block d-none anim-block-1 fade-left">We bring world into focus</a>
+                            <h1 class="title-big anim-block-2 fade-left">Optometrist & Specialist Of Eye Care</h1>
+                            <hr class="anim-block-3 fade-top d-sm-block d-none">
+                            <p class="d-sm-block d-none anim-block-4 fade-top">We believe eye care should be attainable and that is reflected in the way we partner primary eye care. </p>
+                            <div class="btn-wrap d-inline-flex flex-wrap justify-content-sm-start justify-content-center mt-4 anim-block-5 fade-top">
+                                <a href="#" class="btn white-bg">Meet Our Doctors</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<br><br>
+
+        <!-- banner-slider-option-3 -->
+        <section class="banner-slider banner-slider-option-3">
+            <div class="bs-repeter">
+                <picture class="bs-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-sm-6 bs-col text-center">
+                        <div class="bs-content">
+                            <a href="#" class="top-link anim-block-1 fade-top">We are here for your eye care.</a>
+                            <h1 class="title-big anim-block-2 fade-top">Your <span>Vision</span> is Our Passion.</h1>
+                            <div class="btn-wrap d-inline-flex flex-wrap justify-content-center mt-4 anim-block-3 fade-top">
+                                <a href="#" class="btn">Get an Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-repeter">
+                <div class="video-wrap">
+                    <iframe class="video" autoplay="" src="https://www.youtube-nocookie.com/embed/U38mIAfSdgg?version=3&amp;enablejsapi=1&amp;html5=1&amp;hd=1&amp;wmode=opaque&amp;showinfo=0&amp;rel=0&amp;start=63&amp;end=98;&amp;controls=0&amp;start=63&amp;end=98"></iframe>
+                </div>
+                <div class="justify-content-end no-gutters row">
+                    <div class="col-md-4 d-md-block d-none position-relative z-index-2">
+                        <picture class="video-left-img">
+                            <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                            <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                        </picture>
+                    </div>
+                    <div class="col-md-7 video-col d-flex align-items-center text-center">                        
+                        <div class="bs-content text-md-left text-center">
+                            <a href="#" class="top-link anim-block-1 fade-left">Your <span>Vision</span> is</a>
+                            <h1 class="title-big anim-block-2 fade-left">Our Passion.</h1>
+                            <p class="mt-4 d-md-block d-none anim-block-3 fade-top">We believe eye care should be attainable and that is reflected in the way we partner primary eye care.</p>
+                            <div class="profile d-flex anim-block-4 fade-top mt-lg-5 mt-4">
+                                <picture class="profile-img">
+                                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="profile-image">
+                                </picture>
+                                <div class="profile-info pl-3">
+                                    <h6 class="h6">Dr. Alex Murry</h6>
+                                    <span class="profile-link">Get an Appointment</span>
+                                    <a href="#">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<br><br>
+
+        <!-- banner-slider-option-4 -->
+        <section class="banner-slider banner-slider-option-4">
+            <div class="bs-repeter">
+                <picture class="bs-img zoom-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-sm-6 bs-col text-center">
+                        <div class="bs-content">
+                            <a href="#" class="top-link anim-block-1 fade-top">We are here for your eye care.</a>
+                            <h1 class="title-big anim-block-2 fade-top">Your <span>Vision</span> is Our Passion.</h1>
+                            <div class="btn-wrap d-inline-flex flex-wrap justify-content-center mt-4 anim-block-3 fade-top">
+                                <a href="#" class="btn">Get an Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-repeter">
+                <picture class="bs-img zoom-img">
+                    <source srcset="https://via.placeholder.com/1920x750?text=1920x750-new.jpg">
+                    <img src="https://via.placeholder.com/1920x750?text=1920x750-new.jpg" alt="banner-image">
+                </picture>
+                <div class="row no-gutters">
+                    <div class="col-sm-6 bs-col text-center">
+                        <div class="bs-content">
+                            <a href="#" class="top-link anim-block-1 fade-top">We are here for your eye care.</a>
+                            <h1 class="title-big anim-block-2 fade-top">Your <span>Vision</span> is Our Passion.</h1>
+                            <div class="btn-wrap d-inline-flex flex-wrap justify-content-center mt-4 anim-block-3 fade-top">
+                                <a href="#" class="btn">Get an Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> #}

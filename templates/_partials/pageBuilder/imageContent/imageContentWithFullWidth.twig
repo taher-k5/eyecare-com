@@ -1,0 +1,191 @@
+{#
+==================================================
+    Image Content With Full Width (imageContentWithFullWidth)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Image (image)
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Text (text)
+        - Lists (lists)
+            - Text (text)
+        - Buttons (buttons) [Matrix]
+            - Button (button)
+            - Button Color (buttonColor)
+        - CTA (cta) [Entriws]
+            - Statistics (statistics)
+                - Main Heading (mainHeading)
+                - Icon (icon)
+                - Number (number)
+                - Heading (heading)
+        - Background Color (backgroundColor)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = innerBlock is defined ? 'ttm-bgcolor-white' : block.backgroundColor.getValue()|default('ttm-bgcolor-white') %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or last ? 'pb-medium'),
+    bgColor,
+    "bg-layer-equal-height"
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: 1163,
+    height: 920,
+    quality: 85
+} %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="padding_top90 padding_bottom90 res-991-padding_top60 res-991-padding_bottom40">
+                    <div class="section-title">
+                        {% if block.heading|length or block.eyebrow|length %}
+                        <div class="title-header">
+                            {% if block.eyebrow|length %}
+                            <h3 class="eyebrowColor">{{ block.eyebrow }}</h3>
+                            {% endif %}
+
+                            {% set textColor = bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-textcolor-darkgrey' : 'ttm-textcolor-skincolor' %}
+                            {% set params = {
+                                text: block.heading,
+                                class: textColor,
+                            } %}
+                            {% if block.heading|length %}
+                            <h2 class="title">
+                                {{ render.replaceUnderscores(params) }}
+                            </h2>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        {% if block.heading|length %}
+                        <div class="heading-seperator"><span></span></div>
+                        {% endif %}
+
+                        {% if block.text|length %}
+                        <div class="title-desc">
+                            {{ block.text }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% for item in block.lists.all() %}
+                    <div class="padding_top10{% if loop.last %} padding_bottom35{% endif %}">
+                        <ul class="ttm-list ttm-list-style-icon {{ bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-icon_element-color-darkgrey' : 'ttm-icon_element-color-skincolor' }} {{ bgColor == 'ttm-bgcolor-darkgrey' or bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-textcolor-white': 'ttm-textcolor-darkgrey' }}">
+                            <li>
+                                <i class="fa fa-check"></i>
+                                <div class="ttm-list-li-content">
+                                    {{ item.text }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endfor %}
+
+                    {% for item in block.buttons.all() %}
+                        {% set extras = item.buttonColor.getExtras() %}
+                        {% set options = {
+                            button: item.button,
+                            color: extras.classes,
+                        } %}
+                        {{ render.createButton(options) }}
+                    {% endfor %}
+
+                    {# CTA Builder #}
+                    {% if block.cta|length %}
+                    {% set cta = block.cta.one() %}
+                    {% for block in cta.ctaBuilder.all() %}
+                        {% include "_partials/ctaBuilder/imageContentStatistics" with { block : block } %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            {# <div class="col-lg-6 col-md-12">
+                <div class="col-bg-img-seven ttm-col-bgimage-yes ttm-right-span ttm-bg">
+                    {% set image = block.image.one() %}
+                    {% if image|length %}
+                    {% set id = 'image' ~ image.getId() %}
+                    <div id="{{ id }}" class="ttm-col-wrapper-bg-layer bg-image ttm-bg-layer">
+                        {% set params = {
+                            image: image,
+                            selctor: id,
+                        } %}
+                        {{ render.setBackgroundImage(params) }}
+                    </div>
+                    {% endif %}
+                    <div class="layer-content"></div>
+                </div>
+                {% set image = block.image.one() %}
+                {% if image|length %}
+                {% set params = {
+                    image: image.getUrl(thumb),
+                    alt: image.title,
+                    class: 'img-fluid ttm-equal-height-image',
+                } %}
+                {{ render.setImage(params) }}
+                {% endif %}
+            </div> #}
+            <div class="col-lg-6">
+                <div class="col-bg-img-six ttm-col-bgimage-yes ttm-right-span ttm-bg">
+                    <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                        {% set image = block.image.one() %}
+                        {% if image|length %}
+                        {% set id = 'image' ~ image.getId() %}
+                        <div id="{{ id }}" class="ttm-col-wrapper-bg-layer bg-image ttm-bg-layer">
+                            {% set params = {
+                                image: image,
+                                selctor: id,
+                            } %}
+                            {{ render.setBackgroundImage(params) }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="layer-content"></div>
+                </div>
+                {% set image = block.image.one() %}
+                {% if image|length %}
+                {% set params = {
+                    image: image.getUrl(thumb),
+                    alt: image.title,
+                    class: 'img-fluid ttm-equal-height-image',
+                } %}
+                {{ render.setImage(params) }}
+                {% endif %}
+                {# <img src="https://via.placeholder.com/1200x800?text=col-bgimage-6-1200x800.jpg" class="img-fluid ttm-equal-height-image" alt="bg-image"> #}
+            </div>
+        </div>
+    </div>
+</section>

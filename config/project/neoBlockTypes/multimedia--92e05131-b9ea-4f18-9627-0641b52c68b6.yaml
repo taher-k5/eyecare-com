@@ -1,0 +1,152 @@
+childBlocks: ''
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+fieldLayouts:
+  f872e593-5534-4aa0-83bc-2b1bce706d28:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2dc2fb9d-3273-4a13-9b7c-3ff580f8fab5 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd44fb60-ae69-47ed-9211-8382d7d7efdb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d2aefd2b-c13b-478a-b40f-4a4cd73e3321 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9946fa71-feae-4847-bce7-29c8d4b1003f # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 099894d9-8f0c-4956-97d7-7a78d417bea5 # Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 47b4b9d5-4a09-4227-a51f-bb23b1f83f5e # CTA
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: bb8709a1-5516-49b4-bf7e-4758fd82e0d4 # Sidebar Images
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 62ad7736-18a8-4f92-8634-a8d4c7949bfc # Main Heading
+            instructions: ''
+            label: 'Sidebar Heading'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6be7af67-6034-4891-9542-be7677dddfa9 # Lists
+            instructions: ''
+            label: 'Sidebar List'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 0a53dbd8-7522-43e6-8f8b-663c3913d340 # Background Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 99fe12b8-19d0-442d-a184-3f035c8fd3a8 # Margin Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 78e12444-c096-4f24-9160-02f33964e5d6 # Margin Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 820beb7b-ccbe-4ce2-a95d-e8143d49cf51 # Padding Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 59c47b1d-4f47-4d7d-bb97-72df688c6a1b # Padding Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Spacing
+        sortOrder: 3
+handle: multimedia
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Multimedia
+sortOrder: 34
+topLevel: true

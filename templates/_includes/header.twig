@@ -1,0 +1,133 @@
+{% import "_includes/macros" as render %}
+
+<header id="masthead" class="header ttm-header-style-01 clearfix">
+    <div class="top_bar ttm-bgcolor-darkgrey ttm-textcolor-white clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="d-flex flex-row align-items-center justify-content-center">
+
+                        {% set workingTime = footer.workingHours.day(now|date("l")|lower).one() %}
+                        {% if workingTime|length %}
+                            <div class="ttm-bg ttm-col-bgcolor-yes ttm-left-span ttm-bgcolor-skincolor ttm-textcolor-white mr-auto padding_right25">
+                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
+                                <div class="layer-content">
+                                    <div class="top_bar_contact_item"><div class="top_bar_icon"><i class="fa fa-clock-o"></i></div>
+                                        {% if workingTime.closed %}
+                                            Closed Today
+                                        {% else %}
+                                            Open Today: {{ workingTime.openingTime|date("H:i a") }} - {{ workingTime.closingTime|date("H:i a") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <div class="d-flex align-items-center">
+                            {% set email = footer.emailAddress %}
+                            {% if email|length %}
+                            <div class="top_bar_contact_item">
+                                <div class="top_bar_icon"><i class="fa fa-envelope-o"></i></div><a href="mailto:{{ email }}">{{ email }}</a>
+                            </div>
+                            {% endif %}
+
+                            {% set mobileNumber = footer.mobileNumber %}
+                            {% if mobileNumber|length %}
+                            <div class="top_bar_contact_item">
+                                <div class="top_bar_icon"><i class="fa fa-phone"></i></div>
+                                <a href="tel:{{ mobileNumber }}">
+                                    {{ mobileNumber.text }}
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            {% set socialLinks = general.socialLinks.all() %}
+                            {% for item in socialLinks %}
+                            {% if loop.first %}
+                            <div class="top_bar_contact_item top_bar_social">
+                                <ul class="social-icons">
+                            {% endif %}
+                                    {% if item.socialLink|length %}
+                                    <li>
+                                        <a class="tooltip-top" href="{{ item.socialLink.getUrl() }}" rel="noopener" aria-label="{{ item.socialLink.getText() }}" data-tooltip="{{ item.socialLink.getText() }}">
+                                            {% set params = {
+                                                icon: item.icon
+                                            } %}
+                                            {{ render.icon(params) }}
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                            {% if loop.last %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="site-header-menu" class="site-header-menu">
+        <div class="site-header-menu-inner ttm-stickable-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="site-navigation d-flex flex-row align-items-center justify-content-between">
+
+                            {% set headerLogo = header.logo.one() %}
+                            {% if headerLogo|length %}
+                            <div class="site-branding ">
+                                <a class="home-link" href="{{ siteUrl }}" title="{{ siteName }}" rel="home">
+                                    {% set params = {
+                                        'image': headerLogo,
+                                        'alt': headerLogo.title
+                                    } %}
+                                    {{ render.setImage(params) }}
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            <div class="d-flex flex-row">
+                                <div class="btn-show-menu-mobile menubar menubar--squeeze">
+                                    <span class="menubar-box">
+                                        <span class="menubar-inner"></span>
+                                    </span>
+                                </div>
+
+                                {% set nodes = craft.navigation.nodes().handle('mainNavigation').level(1).all() %}
+                                {% for node in nodes %}
+                                {% if loop.first %}
+                                <nav class="main-menu menu-mobile" id="menu">
+                                    <ul class="menu">
+                                {% endif %}
+                                            {{ render.navigationNodes(node) }}
+                                {% if loop.last %}
+                                    </ul>
+                                </nav>
+                                {% endif %}
+                                {% endfor %}
+                                <div class="header_extra d-flex flex-row align-items-center justify-content-end">
+                                    <div class="header_search">
+                                        <a href="#" class="btn-default search_btn" rel="noopener" aria-label="search">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+                                        <div class="header_search_content">
+                                            <form id="searchbox" method="get" action="#">
+                                                <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Type Word Then Enter.." value="">
+                                                <button type="submit" class="btn close-search" aria-label="Right Align"><i class="fa fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>

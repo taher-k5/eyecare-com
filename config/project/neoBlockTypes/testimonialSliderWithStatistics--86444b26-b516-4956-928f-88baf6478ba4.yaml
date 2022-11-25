@@ -1,0 +1,123 @@
+childBlocks: ''
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+fieldLayouts:
+  6a96fedd-ff98-4a6f-98dc-947e50dd9789:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: dd44fb60-ae69-47ed-9211-8382d7d7efdb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 044209ca-2ffe-44a2-bcd7-c08d84796633 # Testimonials
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8bbfa56c-cff9-4a3d-901d-0fb1b0f5990d # Limit
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 47b4b9d5-4a09-4227-a51f-bb23b1f83f5e # CTA
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 2b2b8169-8666-4b51-a8fd-6a529c04c854 # Background Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0a53dbd8-7522-43e6-8f8b-663c3913d340 # Background Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 84d987de-9f4e-42e5-930d-74f9ccd8436c # Opacity
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 99fe12b8-19d0-442d-a184-3f035c8fd3a8 # Margin Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 78e12444-c096-4f24-9160-02f33964e5d6 # Margin Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 820beb7b-ccbe-4ce2-a95d-e8143d49cf51 # Padding Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 59c47b1d-4f47-4d7d-bb97-72df688c6a1b # Padding Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Spacing
+        sortOrder: 3
+handle: testimonialSliderWithStatistics
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Testimonial Slider With Statistics'
+sortOrder: 20
+topLevel: false

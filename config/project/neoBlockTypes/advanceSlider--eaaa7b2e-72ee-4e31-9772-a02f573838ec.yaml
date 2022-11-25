@@ -1,0 +1,83 @@
+childBlocks: ''
+field: e3a4a8ab-6d19-4f3e-9ace-88e1460b5b5f # Hero
+fieldLayouts:
+  29066b92-253f-477f-b52d-ad96f044dbc4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2b2b8169-8666-4b51-a8fd-6a529c04c854 # Background Image
+            instructions: ''
+            label: Image
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 62ad7736-18a8-4f92-8634-a8d4c7949bfc # Main Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd44fb60-ae69-47ed-9211-8382d7d7efdb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9946fa71-feae-4847-bce7-29c8d4b1003f # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 18387511-2d9b-4f85-a857-c1b951c40d18 # Hero Listing
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 099894d9-8f0c-4956-97d7-7a78d417bea5 # Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: ab91e612-1418-4344-983e-82e2016bb871 # Position
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Setting
+        sortOrder: 2
+handle: advanceSlider
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Advance Slider'
+sortOrder: 3
+topLevel: false

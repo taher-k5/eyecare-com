@@ -1,0 +1,7 @@
+[
+	{"label": "Default", "value": ""},
+	{"label": "Blue", "value": "ttm-bgcolor-darkgrey"},
+	{"label": "Green", "value": "ttm-bgcolor-skincolor"},
+	{"label": "Gray", "value": "ttm-bgcolor-grey"},
+	{"label": "black", "value": "bg-dark"}
+]

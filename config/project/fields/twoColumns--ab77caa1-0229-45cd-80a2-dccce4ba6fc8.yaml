@@ -1,0 +1,14 @@
+columnSuffix: cifrhwmi
+contentColumnType: boolean
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: twoColumns
+instructions: ''
+name: 'Two Columns?'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Lightswitch

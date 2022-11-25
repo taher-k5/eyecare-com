@@ -1,0 +1,13 @@
+<div class="breadcrumb-wrapper">
+    <span>
+        <i class="fa fa-home mr-2"></i><a title="Homepage" href="{{ siteUrl }}">Home</a>
+    </span>
+
+    {% set entryParent = entry.getParent() %}
+    {% if entryParent|length %}
+        <span class="ttm-bread-sep">&nbsp; :&nbsp;: &nbsp;</span>
+        <span>{{ entryParent.title }}</span>
+    {% endif %}
+    <span class="ttm-bread-sep">&nbsp; :&nbsp;: &nbsp;</span>
+    <span>{{ entry.title }}</span>
+</div>

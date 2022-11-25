@@ -1,0 +1,98 @@
+{#
+==================================================
+    Advance Slider (advanceSlider)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Image (backgroundImage)
+        - Main Heading (mainHeading)
+        - Heading (heading)
+        - Text (text)
+        - Hero Listing (heroListing) [matrix]
+            - Icon (icon)
+            - Heading (heading)
+        - Buttons (buttons)
+        - Position (position)
+==================================================
+#}
+
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set id = "block-#{block.getId()}" %}
+{% set imgId = 'img-' ~ block.getId() %}
+
+{% if loop.first %}
+<section class="banner-slider banner-slider-option-1">
+{% endif %}
+    <div id="{{ imgId }}" class="bg-image clearfix ttm-bg bs-repeter {% if block.position.getValue() == 'left' %} caption-left {% else %} caption-right {% endif %} ">
+        {% if block.backgroundImage|length %}
+            {% set bgImage = block.backgroundImage.one() %}
+            {% set bgImage = {
+                image: bgImage,
+                selctor: imgId,
+            } %}
+            {{ render.setBackgroundImage(bgImage) }}
+        {% endif %}
+        <div class="row no-gutters">
+            <div class="col-sm-9 {% if block.position.getValue() == 'left' %} col-lg-6 {% else %} col-lg-7 {% endif %} bs-col">
+                <div class="bs-content">
+                    {% if block.mainHeading|length %}
+                        <h1 class="title-big anim-block-1 fade-top">{{ block.mainHeading }}</h1>
+                    {% endif %}
+
+                    {% set textColor = 'ttm-textcolor-skincolor' %}
+                    {% set params = {
+                        text: block.heading,
+                        class: textColor,
+                    } %}
+                    {% if block.heading|length %}
+                        <div class="title-small anim-block-2 fade-top">{{ render.replaceUnderscores(params) }}</div>
+                    {% endif %}
+
+                    {% if block.text|length %}
+                        <div class="d-sm-block d-none anim-block-3 fade-top">{{ block.text }}</div>
+                    {% endif %}
+
+                    {% for listing in block.heroListing.all() %}
+                    {% set count = loop.length %}
+                    {% if loop.index is not divisible by(2) %}
+                    <div class="service-block-wrap d-sm-flex d-none flex-wrap anim-block-4 fade-top">
+                    {% endif %}
+                        {% if listing.button.isAvailable() %}
+                        <a href="{{ listing.button.getUrl() }}" class="service-block d-flex align-items-center">
+                            {% set params = {
+                                icon: listing.icon
+                            } %}
+                            {{ render.icon(params) }}
+                            <p class="pl-3">{{ listing.button.getText() }}</p>
+                        </a>
+                        {% endif %}
+                    {% if loop.index == count or loop.index is divisible by(2) %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for item in block.buttons.all() %}
+                    {% if loop.first %}
+                    <div class="btn-wrap d-inline-flex flex-wrap justify-content-sm-start justify-content-center mt-lg-5 mt-4 anim-block-5 fade-top">
+                    {% endif %}
+                            {% set extras = item.buttonColor.getExtras() %}
+                            {% set options = {
+                                button: item.button,
+                                color: extras.classes,
+                                class: 'mr-3 mb-3'
+                            } %}
+                            {{ render.createButton(options) }}
+                    {% if loop.last %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% if loop.last %}
+</section>
+{% endif %}

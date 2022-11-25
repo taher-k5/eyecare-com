@@ -1,0 +1,11 @@
+childBlocks:
+  - testimonial
+  - testimonialSliderWithStatistics
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+handle: testimonials
+maxBlocks: 0
+maxChildBlocks: 1
+maxSiblingBlocks: 0
+name: Testimonials
+sortOrder: 18
+topLevel: true

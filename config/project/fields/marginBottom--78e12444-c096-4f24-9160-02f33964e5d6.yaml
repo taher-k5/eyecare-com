@@ -1,0 +1,16 @@
+columnSuffix: adxsolse
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: marginBottom
+instructions: ''
+name: 'Margin Bottom'
+searchable: false
+settings:
+  genError: null
+  json: null
+  multi: false
+  template: _sdf/marginBottom.json
+  templateData: null
+translationKeyFormat: null
+translationMethod: site
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

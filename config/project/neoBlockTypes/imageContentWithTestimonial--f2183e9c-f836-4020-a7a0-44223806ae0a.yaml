@@ -1,0 +1,141 @@
+childBlocks: ''
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+fieldLayouts:
+  9d5fb1c6-083a-4c7e-a026-1b704f1b200b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d2aefd2b-c13b-478a-b40f-4a4cd73e3321 # Image
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2dc2fb9d-3273-4a13-9b7c-3ff580f8fab5 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd44fb60-ae69-47ed-9211-8382d7d7efdb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9946fa71-feae-4847-bce7-29c8d4b1003f # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 044209ca-2ffe-44a2-bcd7-c08d84796633 # Testimonials
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f08643d1-7659-492a-b797-de030cb6376c # Form Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a38526a4-2d79-4b20-a611-85ca0c61ac4a # Form
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 579622ad-24b8-4af6-b960-64573012dbce # Mobile Number
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 0a53dbd8-7522-43e6-8f8b-663c3913d340 # Background Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 99fe12b8-19d0-442d-a184-3f035c8fd3a8 # Margin Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 78e12444-c096-4f24-9160-02f33964e5d6 # Margin Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 820beb7b-ccbe-4ce2-a95d-e8143d49cf51 # Padding Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 59c47b1d-4f47-4d7d-bb97-72df688c6a1b # Padding Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Spacing
+        sortOrder: 3
+handle: imageContentWithTestimonial
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Image Content With Testimonial'
+sortOrder: 17
+topLevel: false

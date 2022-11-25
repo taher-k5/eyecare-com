@@ -1,0 +1,73 @@
+fieldLayouts:
+  ad285292-3df2-4de3-ae59-2616a1724ab7:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b6b8ab40-fc5e-4326-98ac-afb361279ea8 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2b2b8169-8666-4b51-a8fd-6a529c04c854 # Background Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cab2cfaf-a249-4e33-ba04-20f671c98363 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 87c2c830-f221-4e0f-9e8b-44d03eade914 # Email Address
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 579622ad-24b8-4af6-b960-64573012dbce # Mobile Number
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 6f29f459-0c65-4ecf-9533-75821c8c80fd # Address
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1d8ffe9b-3be0-4173-b1e5-ca43ba6de88a # Working Hours
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Footer
+        sortOrder: 1
+handle: footer
+name: Footer
+sortOrder: 2

@@ -1,0 +1,105 @@
+childBlocks: ''
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+fieldLayouts:
+  477d10f6-c1cd-4544-b343-b6e32e0504dc:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2dc2fb9d-3273-4a13-9b7c-3ff580f8fab5 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd44fb60-ae69-47ed-9211-8382d7d7efdb # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9946fa71-feae-4847-bce7-29c8d4b1003f # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bb9169b8-d78e-423f-9c3a-2f76da36b492 # Listing Cards
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 0a53dbd8-7522-43e6-8f8b-663c3913d340 # Background Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 99fe12b8-19d0-442d-a184-3f035c8fd3a8 # Margin Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 78e12444-c096-4f24-9160-02f33964e5d6 # Margin Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 820beb7b-ccbe-4ce2-a95d-e8143d49cf51 # Padding Top
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 59c47b1d-4f47-4d7d-bb97-72df688c6a1b # Padding Bottom
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Spacing
+        sortOrder: 3
+handle: slider
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Slider
+sortOrder: 24
+topLevel: false

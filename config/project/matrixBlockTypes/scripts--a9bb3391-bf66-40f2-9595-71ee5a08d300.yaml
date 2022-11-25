@@ -1,0 +1,96 @@
+field: db7881e7-5069-47d7-a220-7cdce993a94a # Scripts
+fieldLayouts:
+  53bc0a24-ebf4-4d1e-821b-ac5043c2148d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 84b9a20e-52f8-448e-bf11-76a58301947d # Script Label
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 25033e87-ef3a-4db6-85a2-c9edbeaad980 # Location
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 89bd2f59-74ed-4073-ac20-8ce39dca2c8b # Embed Code
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  84b9a20e-52f8-448e-bf11-76a58301947d: # Script Label
+    columnSuffix: bxwhmbbd
+    contentColumnType: text
+    fieldGroup: null
+    handle: scriptLabel
+    instructions: ''
+    name: 'Script Label'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  89bd2f59-74ed-4073-ac20-8ce39dca2c8b: # Embed Code
+    columnSuffix: peqrfydo
+    contentColumnType: text
+    fieldGroup: null
+    handle: embedCode
+    instructions: ''
+    name: 'Embed Code'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '3'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  25033e87-ef3a-4db6-85a2-c9edbeaad980: # Location
+    columnSuffix: wfbwlsdw
+    contentColumnType: string
+    fieldGroup: null
+    handle: location
+    instructions: ''
+    name: Location
+    searchable: false
+    settings:
+      genError: null
+      json: null
+      multi: false
+      template: _sdf/scriptLocation.json
+      templateData: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+handle: scripts
+name: Scripts
+sortOrder: 1

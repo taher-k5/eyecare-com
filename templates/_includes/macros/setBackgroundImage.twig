@@ -1,0 +1,80 @@
+{% if image|length %}
+	{% set doWebp = craft.app.config.env != 'production' and webp and craft.imager.serverSupportsWebp() %}
+	{% set itemSelector = selctor|first == "." ? "" : "#" ~ selctor %}
+	{% if image.extension|default(null) in ["svg", "gif"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg", "gif"]) %}
+		{#
+        =============================================
+            If images are non croppable, render original images.
+        =============================================
+        #}
+		<style type="text/css">
+			html.no-webp {{ itemSelector }} {background-image: url('{{ image.getUrl()|default(image) }}');}
+			{% if doWebp %}
+			html.webp {{ itemSelector }} {background-image: url('{{ image.getUrl()|default(image) }}');}
+			{% endif %}
+		 </style>
+	{% else %}
+		{#
+        =============================================
+            Generate Transformations
+        =============================================
+        #}
+		{% set focalPoint = "" %}
+		{% if image.hasFocalPoint|default(false) %}
+	        {% set x = image.focalPoint | first * 100 ~ '%' %}
+	        {% set y = image.focalPoint | last * 100 ~ '%' %}
+	        {% set focalPoint = 'background-position: ' ~ [x, y]|join(' ') %}
+	    {% endif %}
+	    {% if single %}
+			{% set transforms = { width: 1600 } %}
+			{% set vars = {mode: 'crop', jpegQuality: 30 } %}
+			{% set configOverrides = { fillTransforms: true, fillInterval: 640 } %}
+			{% set jpegImages = craft.imagerx.transformImage(image, transforms, vars, configOverrides) %}
+			{% if doWebp %}
+				{% set vars = vars|merge({format: 'webp'}) %}
+				{% set webpImages = craft.imagerx.transformImage(image, transforms, vars, configOverrides) %}
+			{% endif %}
+	   	{% else %}
+			{% set jpegImages = craft.imagerx.transformImage(image, 'jpg') %}
+			{% if doWebp %}{% set webpImages = craft.imagerx.transformImage(image, 'webp') %}{% endif %}
+	    {% endif %}
+	    {#
+        =============================================
+            Print Images
+        =============================================
+        #}
+		{% if single %}
+			<style type="text/css">
+				html.no-webp {{ itemSelector }} {background-image: url({{ jpegImages.url }}); {{ focalPoint }}}
+				{% if doWebp %}
+				html.webp {{ itemSelector }} {background-image: url({{ webpImages.url }}); {{ focalPoint }}}
+				{% endif %}
+			 </style>
+		{% else %}
+			<style type="text/css">
+		    {# Output JPEG css rules #}
+		    {% for jpegImage in jpegImages %}
+			    {% if loop.index == 1 %}
+					html.no-webp {{ itemSelector }} {background-image: url({{ jpegImage.url }}); {{ focalPoint }}}
+				{% else %}
+				    @media (min-width: {{ jpegImages[loop.index0-1].width }}px) {
+				    	html.no-webp {{ itemSelector }} {background-image: url({{ jpegImage.url }});}
+				    }
+				{% endif %}
+		    {% endfor %}
+		    {# Output WEBP css rules #}
+		    {% if doWebp %}
+			    {% for webpImage in webpImages %}
+				    {% if loop.index == 1 %}
+						html.webp {{ itemSelector }} {background-image: url({{ webpImage.url }}); {{ focalPoint }}}
+					{% else %}
+					    @media (min-width: {{ webpImages[loop.index0-1].width }}px) {
+					    	html.webp {{ itemSelector }} {background-image: url({{ webpImage.url }});}
+					    }
+					{% endif %}
+			    {% endfor %}
+			{% endif %}
+		    </style>
+	    {% endif %}
+    {% endif %}
+{% endif %}

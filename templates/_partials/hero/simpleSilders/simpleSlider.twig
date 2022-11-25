@@ -1,0 +1,75 @@
+{#
+==================================================
+    Simple Slider (simpleSlider)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Image (backgroundImage)
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Text (text)
+        - Buttons (buttons)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set id = "block-#{block.getId()}" %}
+{% set imgId = 'img-' ~ block.getId() %}
+
+{% if loop.first %}
+<section class="banner-slider banner-slider-option-4">
+{% endif %}
+    <div id="{{ imgId }}" class="bg-image clearfix ttm-bg bs-repeter">
+        {% if block.backgroundImage|length %}
+            {% set bgImage = block.backgroundImage.one() %}
+            {% set bgImage = {
+                image: bgImage,
+                selctor: imgId,
+            } %}
+            {{ render.setBackgroundImage(bgImage) }}
+        {% endif %}
+        <div class="bg-layer ttm-bgcolor-darkgrey opacity--9"></div>
+        <div class="row no-gutters">
+            <div class="col-sm-6 bs-col text-center">
+                <div class="bs-content">
+                    {% if block.eyebrow|length %}
+                    <div class="ttm-textcolor-skincolor top-link anim-block-1 fade-top">{{ block.eyebrow }}</div>
+                    {% endif %}
+
+                    {% set textColor = 'ttm-textcolor-skincolor' %}
+                    {% set params = {
+                        text: block.heading,
+                        class: textColor,
+                    } %}
+                    {% if block.heading|length %}
+                    <h1 class="title-big anim-block-2 fade-top">{{ render.replaceUnderscores(params) }}</h1>
+                    {% endif %}
+
+                    {% if block.text|length %}
+                    <div class="ttm-textcolor-darkgrey d-sm-block d-none anim-block-4 fade-top">{{ block.text }}</div>
+                    {% endif %}
+
+                    {% for item in block.buttons.all() %}
+                    {% if loop.first %}
+                    <div class="btn-wrap d-inline-flex flex-wrap justify-content-center mt-4 anim-block-3 fade-top">
+                    {% endif %}
+                        {% set extras = item.buttonColor.getExtras() %}
+                        {% set options = {
+                            button: item.button,
+                            color: extras.classes,
+                            class: 'mr-3 mb-3'
+                        } %}
+                        {{ render.createButton(options) }}
+                    {% if loop.last %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% if loop.last %}
+</section>
+{% endif %}

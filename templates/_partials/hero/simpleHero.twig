@@ -1,0 +1,41 @@
+{#
+==================================================
+    Simple Hero (simpleHero)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Background Image (backgroundImage)
+        - Heading (heading)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set id = "block-#{block.getId()}" %}
+
+<div id="{{ id }}" class="bg-image">
+    {% if block.backgroundImage|length %}
+        {% set bgImage = block.backgroundImage.one() %}
+        {% set bgImage = {
+            image: bgImage,
+            selctor: id,
+        } %}
+        {{ render.setBackgroundImage(bgImage) }}
+    {% endif %}
+    <div class="ttm-page-title-row-inner ttm-bgcolor-darkgrey">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    {% if block.heading|length %}
+                    <div class="page-title-heading">
+                        <h2 class="title">{{ block.heading }}</h2>
+                    </div>
+                    {% endif %}
+
+                    {% include "_includes/breadcrumb" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

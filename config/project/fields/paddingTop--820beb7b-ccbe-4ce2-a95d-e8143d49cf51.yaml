@@ -1,0 +1,16 @@
+columnSuffix: otyxxwzi
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: paddingTop
+instructions: ''
+name: 'Padding Top'
+searchable: false
+settings:
+  genError: null
+  json: null
+  multi: false
+  template: _sdf/paddingTop.json
+  templateData: null
+translationKeyFormat: null
+translationMethod: site
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

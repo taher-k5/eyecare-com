@@ -1,0 +1,20 @@
+columnSuffix: miwknkxy
+contentColumnType: integer(10)
+fieldGroup: 742cee9e-0d18-4762-858d-adb0b404d053 # Common
+handle: number
+instructions: ''
+name: Number
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: '0'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Number

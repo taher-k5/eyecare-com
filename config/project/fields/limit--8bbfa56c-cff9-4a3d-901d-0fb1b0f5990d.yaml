@@ -1,0 +1,20 @@
+columnSuffix: xpquajvx
+contentColumnType: integer(10)
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: limit
+instructions: ''
+name: Limit
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: '3'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Number

@@ -1,0 +1,19 @@
+columnSuffix: cmxvlyhw
+contentColumnType: text
+fieldGroup: e8c8a29f-6c66-46de-907b-c52b4d890d10 # Global
+handle: emailAddress
+instructions: ''
+name: 'Email Address'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

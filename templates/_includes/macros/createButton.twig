@@ -1,0 +1,12 @@
+{% set linkText = button.text|split('_') %}
+{% if linkText|length > 1 %}
+    <h2 class="fs-18 mb-0">{{ linkText[0] }}
+    <a href="{{ button.getUrl() }}" class="ttm-textcolor-skincolor">
+    	{{ linkText[1] }}
+    </a>
+    </h2>
+{% else %}
+	<a href="{{ button.getUrl() }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-round {{ color }} {{ class }} {{ button|length > 1 ? 'mt-2' : '' }}" {% if button.target %}target="_blank" rel="noopener"{% endif %}>
+		{{ linkText[0] }}
+	</a>
+{% endif %}

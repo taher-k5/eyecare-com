@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 742cee9e-0d18-4762-858d-adb0b404d053 # Common
+handle: scripts
+instructions: ''
+name: Scripts
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_scripts}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

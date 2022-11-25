@@ -1,0 +1,148 @@
+{% import "_includes/macros" as render %}
+
+{% set bgImage = footer.backgroundImage.one() %}
+{% set id = bgImage|length ? "bg-#{bgImage.getId}" %}
+<footer id="{{ id }}" class="footer ttm-bgcolor-darkgrey widget-footer ttm-bgimage-yes ttm-bg clearfix">
+    {% if bgImage %}
+        {% set params = {
+            image: bgImage,
+            selctor: id
+        } %}
+
+        {{ render.setBackgroundImage(params) }}
+    {% endif %}
+    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+    <div class="second-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget widget_text clearfix">
+                        {% set footerLogo = footer.logo.one() %}
+                        {% if footerLogo|length %}
+                        <div class="footer-logo">
+                            {% set params = {
+                                'image': footerLogo,
+                                'alt': footerLogo.title,
+                                'class': 'img-fluid auto_size'
+                            } %}
+                            {{ render.setImage(params) }}
+                        </div>
+                        {% endif %}
+
+                        <div class="textwidget widget-text">
+                            {{ footer.description }}
+                            {% if footer.mobileNumber|length or footer.emailAddress|length or footer.address|length %}
+                            <ul class="widget_contact_wrapper">
+                                {% if footer.mobileNumber|length %}<li><i class="ttm-textcolor-skincolor fa fa-phone"></i><a href="tel:{{ footer.mobileNumber }}">{{ footer.mobileNumber.text }}</a></li>{% endif %}
+                                {% if footer.emailAddress|length %}<li><i class="ttm-textcolor-skincolor fa fa-envelope-o"></i><a href="mailto:info@example.com">{{ footer.emailAddress }}</a></li>{% endif %}
+                                {% if footer.address|length %}<li><i class="ttm-textcolor-skincolor fa fa-map-marker"></i>{{ footer.address }}</li>{% endif %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% set nodes = craft.navigation.nodes('footerNavigation').level(1).all() %}
+                {% nav node in nodes %}
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget widget_nav_menu clearfix">
+                        <h3 class="widget-title">{{- node.title -}}</h3>
+                        {% if node.hasDescendants %}
+                            <ul class="menu">
+                                {% for subnode in node.children %}
+                                    <li class="list-style-none border-b border-yellow-300">
+                                        <a href="{{ subnode.getUrl() }}" {% if subnode.newWindow %} target="_blank" rel="noopener"{% endif %}>
+                                            {{ subnode.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endnav %}
+
+                {% set officeHours = footer.workingHours.day('').all() %}
+
+                {% for item in officeHours %}
+                {% if loop.first %}
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget widget-timing clearfix">
+                        <h3 class="widget-title">Opening Hours</h3>
+                        <div class="ttm-timelist-block-wrapper">
+                            <ul class="ttm-timelist-block">
+                {% endif %}
+                                <li>{{ item.day.getLabel()|default(null) }}:
+                                    <span class="service-time">
+                                        {% if item.closed %}
+                                            Closed
+                                        {% else %}
+                                            {{ item.openingTime|date("H:i") }} - {{ item.closingTime|date("H:i") }}
+                                        {% endif %}
+                                    </span>
+                                </li>
+                {% if loop.last %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class="first-footer ttm-bgcolor-darkgrey clearfix">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-4 widget-area">
+                    <h4>Subscribe Our Newsletters & Stay Update</h4>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7 mx-auto col-xl-5 widget-area">
+                    <form id="subscribe-form" class="newsletter-form" method="post" action="#" data-mailchimp="true">
+                        <div class="mailchimp-inputbox clearfix" id="subscribe-content">
+                            <input type="email" name="email" placeholder="Enter Your Email " required="">
+                            <button class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-round ttm-btn-style-fill ttm-btn-color-skincolor" type="submit">Sign Up!</button>
+                        </div>
+                        <div id="subscribe-msg"></div>
+                    </form>
+                </div>
+
+                {% set socialLinks = general.socialLinks.all() %}
+                {% for item in socialLinks %}
+                {% if loop.first %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-3 widget-area">
+                    <div class="social-icons circle text-right">
+                        <ul class="list-inline">
+                {% endif %}
+                            {% if item.socialLink|length %}
+                            <li>
+                                <a class="tooltip-top" href="{{ item.socialLink.getUrl() }}" rel="noopener" aria-label="{{ item.socialLink.getText() }}" data-tooltip="{{ item.socialLink.getText() }}">
+                                    {% set params = {
+                                        icon: item.icon
+                                    } %}
+                                    {{ render.icon(params) }}
+                                </a>
+                            </li>
+                            {% endif %}
+                {% if loop.last %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer-text">
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <span>© {{ now |date('Y') }} Sanspareil Eyecare . All Rights Reserved. Site by <a href="https://siebird.com/">Siebird</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

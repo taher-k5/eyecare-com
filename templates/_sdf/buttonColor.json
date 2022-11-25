@@ -1,0 +1,9 @@
+[
+    {"value" : "blue", "label" : "Blue", "classes" : "ttm-btn-color-dark ttm-btn-style-fill", "default" : "yes"},
+    {"value" : "green", "label" : "Green", "classes" : "ttm-btn-color-skincolor ttm-btn-style-fill"},
+    {"value" : "white", "label" : "white", "classes" : "ttm-btn-color-white ttm-btn-style-fill"},
+    {"value" : "outlineWhite", "label" : "Outline - White", "classes" : "ttm-btn-color-white ttm-btn-style-border"},
+    {"value" : "outlineBlue", "label" : "Outline - Blue", "classes" : "ttm-btn-color-dark ttm-btn-style-border"},
+    {"value" : "outlineGreen", "label" : "Outline - Green", "classes" : "ttm-btn-color-skincolor ttm-btn-style-border"},
+    {"value" : "linkGreen", "label" : "Link - Green", "classes" : "ttm-textcolor-skincolor"}
+]

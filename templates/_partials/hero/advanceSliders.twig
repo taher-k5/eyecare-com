@@ -1,0 +1,17 @@
+{#
+==================================================
+    Advance Sliders (advanceSliders)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Child
+	        - Advance Slider (advanceSlider)
+==================================================
+ #}
+
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% for block in block.children.all() %}
+	{% include "_partials/hero/advanceSliders/" ~ block.type %}
+{% endfor %}

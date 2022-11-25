@@ -1,0 +1,20 @@
+{#
+==================================================
+    Listing Content (listingContent)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Child
+	        - Stack (stack)
+	        - Card (card)
+	        - Slider (slider)
+	        - Featured Card (featuredCard)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% set last = loop.last %}
+{% for block in block.children.all() %}
+	{% include "_partials/pageBuilder/listingContent/" ~ block.type %}
+{% endfor %}

@@ -1,0 +1,17 @@
+{#
+==================================================
+    Video Sliders (videoSliders)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Child
+	        - Video Slider (videoSlider)
+==================================================
+ #}
+
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% for block in block.children.all() %}
+	{% include "_partials/hero/videoSliders/" ~ block.type %}
+{% endfor %}

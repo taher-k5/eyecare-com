@@ -1,0 +1,236 @@
+field: cf1b0da2-ab9e-4cef-b91e-f3c797dd6a8b # Social Links
+fieldLayouts:
+  7a87ef82-78de-4745-a321-2985f5d56ed2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f76b83a7-321d-48e9-aba9-d9c0915fdb5b # Icon
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 773c15e7-c490-4798-be49-577294db93ca # Link
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  773c15e7-c490-4798-be49-577294db93ca: # Link
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: socialLink
+    instructions: ''
+    name: Link
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      defaultText: ''
+      selectLinkText: ''
+      types:
+        __assoc__:
+          -
+            - fruitstudios\linkit\models\Email
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Phone
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Url
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+                -
+                  - allowAlias
+                  - '1'
+                -
+                  - allowMailto
+                  - '1'
+                -
+                  - allowHash
+                  - '1'
+                -
+                  - allowPaths
+                  - '1'
+          -
+            - fruitstudios\linkit\models\Twitter
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Facebook
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Instagram
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\LinkedIn
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Entry
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\Category
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\Asset
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\User
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+                -
+                  - userPath
+                  - ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: fruitstudios\linkit\fields\LinkitField
+  f76b83a7-321d-48e9-aba9-d9c0915fdb5b: # Icon
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: icon
+    instructions: ''
+    name: Icon
+    searchable: false
+    settings:
+      columnType: text
+      iconSets:
+        - 'font:Flaticon.woff'
+        - 'font:themify.woff'
+      remoteSets: ''
+      showLabels: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\iconpicker\fields\IconPickerField
+handle: socialLinks
+name: 'Social Links'
+sortOrder: 1

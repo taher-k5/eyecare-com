@@ -1,0 +1,192 @@
+{#
+==================================================
+    Team (team)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Text (text)
+        - Team (team) [Entries]
+        - Background Color (backgroundColor)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default(null) %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or loop.last ? 'pb-medium'),
+    bgColor
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+{% if block.team|length %}
+    {% set team = block.team.limit(block.limit|default(3)).all() %}
+{% else %}
+    {% set team = craft.entries.section("team").limit(block.limit|default(3)).all() %}
+{% endif %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: 450,
+    height: 500,
+    quality: 85
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title title-style-center_text">
+                    {% if block.heading|length or block.eyebrow|length %}
+                    <div class="title-header">
+                        {% if block.eyebrow|length %}
+                        <h3 class="eyebrowColor">{{ block.eyebrow }}</h3>
+                        {% endif %}
+
+                        {% set textColor = bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-textcolor-darkgrey' : 'ttm-textcolor-skincolor' %}
+                        {% set params = {
+                            text: block.heading,
+                            class: textColor,
+                        } %}
+                        {% if block.heading|length %}
+                        <h2 class="title {{ bgColor == 'bg-dark' ? 'text-white' : '' }}">{{ render.replaceUnderscores(params) }}</h2>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    {% if block.heading|length %}
+                    <div class="heading-seperator"><span></span></div>
+                    {% endif %}
+
+                    {% if block.text|length %}
+                    <div class="title-desc">
+                        {{ block.text }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% for block in team %}
+        {% if loop.first %}
+        <div class="row slick_slider" data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":false, "infinite":true, "responsive": [{"breakpoint":991,"settings":{"slidesToShow": 3}}, {"breakpoint":678,"settings":{"slidesToShow": 2}}, {"breakpoint":500,"settings":{"slidesToShow": 1}}]}'>
+        {% endif %}
+            {% set count = loop.length %}
+            <div class="ttm-box-col-wrapper {{ count > 2 ? 'col-lg-4' : 'col-lg-auto' }}">
+                <div class="featured-imagebox featured-imagebox-team style1">
+                    <div class="featured-thumbnail">
+                        {% set image = block.image.one() %}
+                        {% if image|length %}
+                        {% set params = {
+                            image: image.getUrl(thumb),
+                            alt: image.title,
+                            class: 'img-fluid',
+                        } %}
+                        {{ render.setImage(params) }}
+                        {% endif %}
+
+                        {% for item in block.socialLinks.all() %}
+                        {% if loop.first %}
+                        <div class="featured-iconbox ttm-media-link">
+                            <div class="media-block">
+                                <ul class="social-icons">
+                        {% endif %}
+                                    {% if item.socialLink|length %}
+                                    <li>
+                                        <a class="tooltip-top" href="{{ item.socialLink.getUrl() }}" rel="noopener" aria-label="{{ item.socialLink.getText() }}">
+                                            {% set params = {
+                                                icon: item.icon
+                                            } %}
+                                            {{ render.icon(params) }}
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                        {% if loop.last %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="featured-content">
+                        <div class="featured-title">
+                            <h3 class="{{ bgColor == 'ttm-bgcolor-skincolor' or bgColor == 'ttm-bgcolor-darkgrey' ? 'textBlue' : '' }}">{{ block.title }}</h3>
+                        </div>
+                        {% if block.designation|length %}
+                        <div class="team-position">{{ block.designation }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="ttm-team-bottom-content">
+                        <div class="ttm-available-timebox-inner">
+                            <ul class="ttm-available-box">
+                                {% if block.startTimeMonFri|length or block.endTimeMonFri|length %}
+                                <li>Mon-Fri
+                                    <span class="ttm-time {{ bgColor == 'ttm-bgcolor-skincolor' or bgColor == 'ttm-bgcolor-darkgrey' ? 'text-black-50' : '' }}">
+                                    {% if block.startTimeMonFri|length %}{{ block.startTimeMonFri|time('short') }} – {% endif %}{% if block.endTimeMonFri|length %}{{ block.endTimeMonFri|time('short') }}{% endif %}
+                                    </span>
+                                </li>
+                                {% endif %}
+
+                                {% if block.startTimeSatSun|length or block.endTimeSatSun|length %}
+                                <li>Sat-Sun
+                                    <span class="ttm-time {{ bgColor == 'ttm-bgcolor-skincolor' or bgColor == 'ttm-bgcolor-darkgrey' ? 'text-black-50' : '' }}">
+                                    {% if block.startTimeSatSun|length %}{{ block.startTimeSatSun|time('short') }} – {% endif %}{% if block.endTimeSatSun|length %}{{ block.endTimeSatSun|time('short') }}{% endif %}
+                                    </span>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                        {% for item in block.buttons.all() %}
+                        {% if loop.first %}
+                        <div class="ttm-btn-bottom">
+                        {% endif %}
+                                {% set extras = item.buttonColor.getExtras() %}
+                                {% set options = {
+                                    button: item.button,
+                                    color: extras.classes,
+                                } %}
+                                {{ render.createButton(options) }}
+                        {% if loop.last %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% if loop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,80 @@
+{% macro setBackgroundImage(params) %}
+	{% set defaults = {
+		image: null,
+		selctor: null,
+		single: false,
+		webp: true,
+	} %}
+
+	{# Override (overwrite) defaults with passed parameters #}
+	{% set options = defaults|merge(params) %}
+	{% include "_includes/macros/setBackgroundImage" with options %}
+{% endmacro %}
+
+{% macro setImage(params) %}
+	{% set defaults = {
+		image: null,
+		alt: null,
+		class: null,
+		id: "",
+		addSrcSet: true,
+		plainImage: null,
+		width: null,
+		height: null,
+	} %}
+
+	{# Override (overwrite) defaults with passed parameters #}
+	{% set options = defaults|merge(params) %}
+	{% include "_includes/macros/setImage" with options %}
+{% endmacro %}
+
+{% macro navigationNodes(node) %}
+    {% import _self as macros %}
+
+    <li class="{{ node.hasDescendants ? 'mega-menu-item' : '' }} {% if node.active %}active{% endif %}">
+        <a href="{{ node.getUrl() }}" {% if node.newWindow %} target="_blank" rel="noopener"{% endif %} class="{{ node.hasDescendants ? 'mega-menu-link' : '' }}">{{ node.title }}</a>
+
+        {% if node.hasDescendants %}
+            <ul class="mega-submenu">
+                {% for subnode in node.children %}
+                    {{ macros.navigationNodes(subnode) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
+
+{% macro icon(params) %}
+	{% set defaults = {
+		icon: null,
+		tag: 'i',
+		class: null,
+	} %}
+
+	{# Override (overwrite) defaults with passed parameters #}
+	{% set options = defaults|merge(params) %}
+	{% include "_includes/macros/icon" with options %}
+{% endmacro %}
+
+{% macro createButton(params) %}
+	{% set defaults = {
+    	button: null,
+    	color: null,
+    	class: null,
+    } %}
+
+	{# Override (overwrite) defaults with passed parameters #}
+	{% set options = defaults|merge(params) %}
+	{% include "_includes/macros/createButton" with options %}
+{% endmacro %}
+
+{% macro replaceUnderscores(params) %}
+	{% set defaults = {
+		text: null,
+		class: null,
+	} %}
+
+	{# Override (overwrite) defaults with passed parameters #}
+	{% set options = defaults|merge(params) %}
+	{% include "_includes/macros/replaceUnderscores" with options %}
+{% endmacro %}

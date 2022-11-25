@@ -1,0 +1,20 @@
+columnSuffix: uhxndnwj
+contentColumnType: smallint(1)
+fieldGroup: 742cee9e-0d18-4762-858d-adb0b404d053 # Common
+handle: rating
+instructions: ''
+name: Rating
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: '5'
+  min: '1'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Number

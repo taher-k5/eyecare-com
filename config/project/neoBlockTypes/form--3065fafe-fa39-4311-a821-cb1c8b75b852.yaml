@@ -1,0 +1,11 @@
+childBlocks:
+  - simpleForm
+  - formWithContent
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+handle: form
+maxBlocks: 0
+maxChildBlocks: 1
+maxSiblingBlocks: 0
+name: Form
+sortOrder: 7
+topLevel: true

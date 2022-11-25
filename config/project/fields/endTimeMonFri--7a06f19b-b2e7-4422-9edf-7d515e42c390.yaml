@@ -1,0 +1,14 @@
+columnSuffix: yembrvvm
+contentColumnType: time
+fieldGroup: 742cee9e-0d18-4762-858d-adb0b404d053 # Common
+handle: endTimeMonFri
+instructions: ''
+name: 'End Time Mon-Fri'
+searchable: false
+settings:
+  max: null
+  min: null
+  minuteIncrement: 30
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Time

@@ -1,0 +1,67 @@
+{#
+==================================================
+    CTA With Video (ctaWithVideo)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Video URL (videoUrl)
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Buttons (buttons) [Matrix]
+            - Button (button)
+            - Button Colro (buttonColor)
+        - Background Color (backgroundColor)
+        - Background Image (backgroundImage)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{# Set the BG color and image #}
+{% set bgColor = block.backgroundColor.getValue()|default('ttm-bgcolor-darkgrey') %}
+{% set bgImage = block.backgroundImage.one() %}
+
+{% set id = 'bgImage-' ~ block.getId() %}
+{% set bgImage = {
+    image: bgImage,
+    selctor: id,
+} %}
+
+<div id="{{ id }}" class="ttm-row ttm-bgimage-yes bg-image ttm-bg {{ bgColor }} clearfix">
+    {{ render.setBackgroundImage(bgImage) }}
+    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 m-auto">
+                <div class="row-title text-center">
+                    <div class="ttm-play-icon-btn mb-35">
+                        <div class="ttm-play-icon-animation">
+                            <a href="{{ block.videoUrl }}" target="_self" class="ttm_prettyphoto">
+                                <div class="ttm-icon ttm-icon_element-fill {{ bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-icon_element-color-white' : 'ttm-icon_element-color-skincolor' }} ttm-icon_element-size-sm ttm-icon_element-style-rounded">
+                                    <i class="fa fa-play"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    {% if block.eyebrow|length or block.heading|length %}
+                    <div class="padding_bottom20 padding_top20">
+                        <h3 class="fs-18 ttm-textcolor-skincolor padding_bottom5 {{ bgColor == 'ttm-bgcolor-skincolor' ? 'textBlue' : '' }}">{{ block.eyebrow }}</h3>
+                        <h2 class="fs-50">{{ block.heading }}</h2>
+                    </div>
+                    {% endif %}
+
+                    {% for item in block.buttons.all() %}
+                        {% set extras = item.buttonColor.getExtras() %}
+                        {% set options = {
+                            button: item.button,
+                            color: extras.classes,
+                        } %}
+                        {{ render.createButton(options) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

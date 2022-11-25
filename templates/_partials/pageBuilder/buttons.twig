@@ -1,0 +1,60 @@
+{#
+==================================================
+	Buttons (buttons)
+	Variable:
+		- Block (Block)
+
+	Fields:
+		- Buttons (buttons) [Matrix]
+			- Button (button)
+			- Button Color (buttonColor)
+		- Background Color (backgroundColor)
+		- Margin Top (marginTop)
+		- Margin Bottom (marginBottom)
+		- Padding Top (paddingTop)
+		- Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default(null) %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or loop.last ? 'pb-medium'),
+    bgColor
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="container text-center">
+		{% for item in block.buttons.all() %}
+			{% set extras = item.buttonColor.getExtras() %}
+			{% set options = {
+			    button: item.button,
+			    color: extras.classes,
+			} %}
+			{{ render.createButton(options) }}
+		{% endfor %}
+    </div>
+</section>

@@ -1,0 +1,12 @@
+{% if block.progressBar|length %}
+{% for block in block.progressBar.all() %}
+	<div class="padding_top10"></div>
+    <div class="ttm-progress-bar clearfix" data-percent="{{ block.number }}%">
+        <div class="{{ bgColor == 'ttm-bgcolor-darkgrey' ? 'ttm-textcolor-white' : 'progressbar-title' }}">{{ block.heading }}</div>
+        <div class="progress-bar-inner">
+            <div class="progress-bar {{ bgColor == 'ttm-bgcolor-skincolor' ? 'progress-bar-color-bar_white' : 'progress-bar-color-bar_skincolor' }}"></div>
+        </div>
+        <div class="progress-bar-percent {{ bgColor == 'ttm-bgcolor-darkgrey' ? 'text-white' : '' }}" data-percentage="{{ block.number }}">{{ block.number }} ~ '%'</div>
+    </div>
+{% endfor %}
+{% endif %}

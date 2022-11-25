@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e8c8a29f-6c66-46de-907b-c52b4d890d10 # Global
+handle: workingHours
+instructions: ''
+name: 'Working Hours'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_workinghours}}'
+  maxBlocks: '7'
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: none
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

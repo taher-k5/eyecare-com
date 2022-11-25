@@ -1,0 +1,5 @@
+{% set textMd = text | markdown(inlineOnly = true) %}
+
+{{ textMd | replace({
+	'<em>': '<em class="not-italic ' ~ class ~ '">',
+}) | raw }}

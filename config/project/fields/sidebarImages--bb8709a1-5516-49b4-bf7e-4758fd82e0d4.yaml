@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: sidebarImages
+instructions: ''
+name: 'Sidebar Images'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:9c9f5539-fd20-4ac0-819e-f0ef99e399db' # Images
+  defaultUploadLocationSubpath: ''
+  limit: '2'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:9c9f5539-fd20-4ac0-819e-f0ef99e399db' # Images
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:9c9f5539-fd20-4ac0-819e-f0ef99e399db' # Images
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

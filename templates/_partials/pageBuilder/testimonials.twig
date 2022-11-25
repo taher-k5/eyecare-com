@@ -1,0 +1,17 @@
+{#
+==================================================
+    Testimonials (testimonials)
+    Variable:
+        - Block (Block)
+    Fields:
+        - Child
+	        - Testimonial (testimonial)
+	        - Testimonial Slider With Statistics (testimonialSliderWithStatistics)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% set last = loop.last %}
+{% for block in block.children.all() %}
+	{% include "_partials/pageBuilder/testimonials/" ~ block.type %}
+{% endfor %}

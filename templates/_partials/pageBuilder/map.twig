@@ -1,0 +1,55 @@
+{#
+==================================================
+	Map (map)
+	Variable:
+		- Block (Block)
+
+	Fields:
+		- Map (map)
+		- Margin Top (marginTop)
+		- Margin Bottom (marginBottom)
+		- Padding Top (paddingTop)
+		- Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(null)
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+<!--google_map-->
+<section {{ attr(attributes) }}>
+	<div class="google_map">
+	    <div class="map_container">
+	        {# <div id="map">
+	            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6304.829986131271!2d-122.4746968033092!3d37.80374752160443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586e6302615a1%3A0x86bd130251757c00!2sStorey+Ave%2C+San+Francisco%2C+CA+94129!5e0!3m2!1sen!2sus!4v1435826432051" height="400"></iframe>
+	        </div> #}
+	        {{ block.map.embed({
+	            id: 'map',
+	            markers: [{}],
+	        }) }}
+	    </div>
+	</div>
+</section>

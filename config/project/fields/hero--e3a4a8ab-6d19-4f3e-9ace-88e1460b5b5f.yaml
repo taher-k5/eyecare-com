@@ -1,0 +1,17 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 742cee9e-0d18-4762-858d-adb0b404d053 # Common
+handle: hero
+instructions: ''
+name: Hero
+searchable: false
+settings:
+  maxBlocks: ''
+  maxLevels: ''
+  maxTopBlocks: '1'
+  minBlocks: ''
+  propagationMethod: none
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

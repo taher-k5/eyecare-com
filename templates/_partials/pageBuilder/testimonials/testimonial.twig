@@ -1,0 +1,165 @@
+{#
+==================================================
+    Testimonial (testimonial)
+    Variable:
+        - Block (Block)
+    Fields:
+        - Eyebrow (eyebrow)
+        - Heading (heading)
+        - Text (text)
+        - Testimonials (testimonials)
+        - Footnote (footnote)
+        - Background Image (backgroundImage)
+        - Background Color (backgroundColor)
+        - Opacity (opacity)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default("ttm-bgcolor-darkgrey") %}
+{% set opacity = block.opacity.getValue()|default("opacity--9") %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(last ? 'pb-medium'),
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+{% set imgId = 'img-' ~ block.getId() %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+{% if block.testimonials|length %}
+    {% set listing = block.testimonials.limit(block.limit|default(3)).all() %}
+{% else %}
+    {% set listing = craft.entries.section("testimonials").orderBy("title asc").limit(block.limit|default(3)).all() %}
+{% endif %}
+
+<section {{ attr(attributes) }}>
+    <div id="{{ imgId }}" class="bg-image ttm-row clearfix ttm-bgimage-yes ttm-bg">
+        {% set bgImage = block.backgroundImage.one() %}
+        {% set bgImage = {
+            image: bgImage,
+            selctor: imgId,
+        } %}
+        {{ render.setBackgroundImage(bgImage) }}
+        <div class="bg-layer {{ bgColor }} {{ opacity }}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title title-style-center_text">
+                        {% if block.heading|length or block.eyebrow|length %}
+                        <div class="title-header">
+                            {% if block.eyebrow|length %}
+                            <h3 class="eyebrowColor">{{ block.eyebrow }}</h3>
+                            {% endif %}
+
+                            {% set textColor = bgColor == 'ttm-bgcolor-skincolor' ? 'ttm-textcolor-darkgrey' : 'ttm-textcolor-skincolor' %}
+                            {% set params = {
+                                text: block.heading,
+                                class: textColor,
+                            } %}
+                            {% if block.heading|length %}
+                            <h2 class="title {{ bgColor == 'ttm-bgcolor-grey' ? '' : 'ttm-textcolor-white' }}">
+                                {{ render.replaceUnderscores(params) }}
+                            </h2>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        {% if block.heading|length %}
+                        <div class="heading-seperator"><span></span></div>
+                        {% endif %}
+
+                        {% if block.text|length %}
+                        <div class="title-desc {{ bgColor == 'ttm-bgcolor-grey' ? '' : 'text-white' }}">{{ block.text }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="padding_bottom60 res-991-padding_bottom0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ttm-row top_zero_padding-section mt_130 res-991-margin_top50 clearfix">
+        <div class="container">
+            <div class="row slick_slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":992,"settings": {"slidesToShow": 2}},{"breakpoint":620,"settings":{"slidesToShow": 1}}]}'>
+                {% for item in listing %}
+                    <div class="{{ loop.index > 2 ? 'col-lg-4' : 'col-lg-auto' }}">
+                        <div class="testimonials ttm-testimonial-box-view-style1">
+                            <div class="testimonial-content">
+                                <div class="d-flex align-items-center">
+                                    {% set image = item.image.one() %}
+                                    {% if image|length %}
+                                    <div class="testimonial-avatar">
+                                        <div class="testimonial-img">
+                                            {% set params = {
+                                                image: image,
+                                                alt: image.title,
+                                                class: 'img-fluid',
+                                            } %}
+                                            {{ render.setImage(params) }}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    <div class="testimonial-caption">
+                                        <h3>{{ item.title }}</h3>
+                                        {% if item.designation|length %}
+                                        <label>{{ item.designation }}</label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="ttm-border-line"></div>
+                                {% if item.rating|length %}
+                                <div class="star-ratings">
+                                    <ul class="rating">
+                                        {% for i in 1..item.rating %}
+                                            <li class="active"><i class="fa fa-star"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+
+                                {% if item.text|length %}
+                                <blockquote>{{ item.text }}</blockquote>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if block.footnote|length %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center margin_top35 mb_20 res-991-mt-20">
+                        <div>{{ block.footnote }} </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

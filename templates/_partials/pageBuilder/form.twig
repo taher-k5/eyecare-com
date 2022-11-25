@@ -1,0 +1,17 @@
+{#
+==================================================
+	Form (form)
+	Variable:
+		- Block (Block)
+
+	Fields:
+		- Children
+		  - Simple Form (simpleForm)
+		  - Form With Content (formWithContent)
+==================================================
+ #}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+
+{% for block in block.children.all() %}
+    {% include "_partials/pageBuilder/form/" ~ block.type %}
+{% endfor %}

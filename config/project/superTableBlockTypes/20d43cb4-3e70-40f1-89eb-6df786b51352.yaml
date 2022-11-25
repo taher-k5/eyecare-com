@@ -1,0 +1,324 @@
+field: bb9169b8-d78e-423f-9c3a-2f76da36b492 # Listing Cards
+fieldLayouts:
+  39b16f0f-60c5-4c75-84ec-9a55709f3f0b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 9c082bb5-9269-4b6e-9d2e-5a5237563174 # Icon
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9f736465-9550-4130-9761-e2fc1dd034d0 # Heading
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cebb15f0-3aaa-4f85-bdf3-0b45962c1d78 # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ee57fc5e-2eae-4c2d-a550-66bc010ed2e0 # Lists
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6b1c5fc7-49b7-457d-8e39-8371ccd72454 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6b1c5fc7-49b7-457d-8e39-8371ccd72454: # Button
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: button
+    instructions: ''
+    name: Button
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      defaultText: ''
+      selectLinkText: ''
+      types:
+        __assoc__:
+          -
+            - fruitstudios\linkit\models\Email
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Phone
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Url
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+                -
+                  - allowAlias
+                  - '1'
+                -
+                  - allowMailto
+                  - '1'
+                -
+                  - allowHash
+                  - '1'
+                -
+                  - allowPaths
+                  - '1'
+          -
+            - fruitstudios\linkit\models\Twitter
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Facebook
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Instagram
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\LinkedIn
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Entry
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\Category
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\Asset
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\User
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+                -
+                  - userPath
+                  - ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: fruitstudios\linkit\fields\LinkitField
+  9c082bb5-9269-4b6e-9d2e-5a5237563174: # Icon
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: icon
+    instructions: ''
+    name: Icon
+    searchable: false
+    settings:
+      columnType: text
+      iconSets: '*'
+      remoteSets: ''
+      showLabels: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\iconpicker\fields\IconPickerField
+  9f736465-9550-4130-9761-e2fc1dd034d0: # Heading
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  cebb15f0-3aaa-4f85-bdf3-0b45962c1d78: # Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\redactor\Field
+  ee57fc5e-2eae-4c2d-a550-66bc010ed2e0: # Lists
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: lists
+    instructions: ''
+    name: Lists
+    searchable: true
+    settings:
+      contentTable: '{{%matrixcontent_lists_1}}'
+      maxBlocks: ''
+      minBlocks: ''
+      propagationKeyFormat: null
+      propagationMethod: all
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix

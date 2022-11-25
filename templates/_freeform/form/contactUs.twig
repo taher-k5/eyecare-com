@@ -1,0 +1,296 @@
+{{ craft.app.config.general.devMode ? ('<!-- Template: _freeform/form/_default.twig -->') | raw }}
+<style>
+.required::after {content: "*"; color: #d00; margin-left: 5px;}
+.ff-form-errors{
+    color: #dc3545!important;
+    background-color: #f8d7da;
+    border: 1px solid;
+    border-color: #dc3545!important;
+    margin: 0 auto;
+    margin-top: 17px;
+    padding: 10px;
+}
+.ff-form-success{
+    color: #0a7522!important;
+    background-color: #afefcf!important;
+    border: 1px solid;
+    border-color: #0a7522!important;
+    margin: 0 auto;
+    margin-top: 17px;
+    padding: 10px;
+}
+.ff-errors{
+    color: #dc3545!important;
+}
+p
+{
+    margin: 0 !important;
+}
+</style>
+
+{# {{ craft.freeform.loadFreeformScripts(form) }} #}
+{{ craft.freeform.loadFreeformPlugin('defer', 'defer') }}
+{{ form.renderTag({ id: "form-" ~ form.handle, class: "freeform jsFreeform"}) | replace({
+    'for="freeform_form_handle"' : 'for="freeform_form_handle_' ~ form.handle ~ '"',
+    'id="freeform_form_handle"' : 'id="freeform_form_handle_' ~ form.handle ~ '"'
+}) }}
+
+{# Set styling for Ajax responses #}
+<script>
+
+// jQuery(document).ready(function($) {
+    var form = document.querySelector('[data-id="{{ form.anchor }}"]');
+    if (form) {
+
+        form.addEventListener("freeform-ready", function (event) {
+            var freeform = event.target.freeform;
+
+            freeform.addOnAfterAjaxSubmit(function(event, form, response) {
+                $('#' + form.id).find('.loader').hide();
+            })
+
+            freeform.addOnSuccessfulAjaxSubmit((event, form, response) => {
+                if (returnUrl_{{ form.id }} != '') {
+                    window.location.href = response.returnUrl;
+                }
+            });
+        })
+
+        var returnUrl_{{ form.id }} = '';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var response = JSON.parse(this.responseText);
+                form.querySelector('input[name=formHash]').value = response.hash;
+                var csrf = response.csrf;
+                form.querySelector('input[name=' + csrf.name + ']').value = csrf.value;
+                returnUrl_{{ form.id }} = response.returnUrl;
+            }
+        };
+        xhttp.open("GET", "/dynamic/refresh-tokens?form={{ form.handle }}", true);
+        xhttp.send();
+
+        form.addEventListener("submit", function(){
+            $('#' + form.id).find('.loader').show();
+        }, false);
+
+    }
+// });
+</script>
+{# Render tabs for pages #}
+{% if form.pages|length > 1 %}
+    <ul class="flex border-b">
+        {% for page in form.pages %}
+            <li class="mr-1">
+                <a class="{{ form.currentPage.index == page.index ? 'bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 ttm-textcolor-darkgrey font-semibold' : 'bg-white inline-block py-2 px-4 text-black font-semibold disabled' }}">{{ page.label }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{# Render errors #}
+{% if form.hasErrors %}
+    <div class="alert-danger col-lg-8 p-2 mt-3 offset-2 text-danger" role="alert">
+        <strong class="font-bold">{{ "Error! Please review the form and try submitting again."|t('freeform') }}</strong>
+        {% if form.errors|length %}
+            <ul class="mb-0 ">
+                {% for error in form.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endif %}
+
+{# Define standard field classes #}
+{% set standardFieldClasses = "text-input" %}
+{% set selectFieldClasses = "text-input" %}
+{% set checkboxFieldClasses = "text-input" %}
+{% set fileFieldClasses = "text-input" %}
+{% set tableFieldClasses = "text-input" %}
+{% set signatureFieldClasses = "text-input" %}
+{% set standardLabelsClasses = "text-input" %}
+
+<div class="request_qoute_form clearfix">
+    <div class="p-20">
+        {% for row in form %}
+            <div class="{% if row|length > 1 %}row{% endif %} ttm-boxes-spacing-20px">
+               {% for field in row %}
+                {# Calculate column class based on columns count #}
+                {% set columnCount = row|length %}
+                {% set columnClass = "col-lg col-md" %}
+
+                {# Set a custom column class for the submit button #}
+                {% if field.type == "submit" %}
+                    {% set columnClass = columnClass ~ " text-" ~ field.position %}
+                {% endif %}
+
+                {# Set field class based on field type #}
+                {% set fieldClass = standardFieldClasses %}
+
+                {% switch field.type %}
+                    {% case "select" %}
+                        {% set fieldClass = selectFieldClasses %}
+                    {% case "checkbox" %}
+                        {% set fieldClass = checkboxFieldClasses %}
+                    {% case "mailing_list" %}
+                        {% set fieldClass = checkboxFieldClasses %}
+                    {% case "file" %}
+                        {% set fieldClass = fileFieldClasses %}
+                    {% case "table" %}
+                        {% set fieldClass = tableFieldClasses %}
+                    {% case "signature" %}
+                        {% set fieldClass = signatureFieldClasses %}
+                    {% case "multiselectClasses" %}
+                        {% set fieldClass = multiselectClasses %}
+                {% endswitch %}
+
+                {% set fieldClass = fieldClass ~ (field.hasErrors ? " text-danger") %}
+
+                {# Set label class #}
+                {% set labelClass = standardLabelsClasses ~ " block text-capitalize" %}
+                {% set labelClass = labelClass ~ (field.required ? " required" : "") %}
+
+                {# Set error class #}
+                {% set errorClass = "text-danger" %}
+
+                {# Set instructions class #}
+                {% set instructionClass = "text-black text-xs italic" %}
+                <div class="main-column-class {{ columnClass }}"{{ field.rulesHtmlData }}>
+
+                    {% if field.type == "checkbox_group" %}
+
+                        {{ field.renderLabel({
+                            labelClass: labelClass,
+                            instructionsClass: instructionClass,
+                            errorClass: errorClass,
+                        }) }}
+
+                        {% for index, option in field.options %}
+                            <div>
+                                <input type="checkbox"
+                                       name="{{ field.handle }}[]"
+                                       value="{{ option.value }}"
+                                       id="{{ field.idAttribute }}-{{ index }}"
+                                       class="{{ field.hasErrors ? " border-red-500" }}"
+                                        {{ option.checked ? "checked" : "" }}
+                                />
+
+                                <label class="form-check-label text-black" for="{{ field.idAttribute }}-{{ index }}">
+                                    {{ option.label|t|raw }}
+                                </label>
+                            </div>
+                        {% endfor %}
+
+                        {{ field.renderInstructions() }}
+                        {{ field.renderErrors({ errorClass: errorClass }) }}
+
+                    {% elseif field.type == "radio_group" %}
+
+                        {{ field.renderLabel({
+                            labelClass: labelClass,
+                            instructionsClass: instructionClass,
+                            errorClass: errorClass,
+                        }) }}
+
+                        {% for index, option in field.options %}
+                            <div>
+                                <input type="radio"
+                                       name="{{ field.handle }}"
+                                       value="{{ option.value }}"
+                                       id="{{ field.idAttribute }}-{{ index }}"
+                                       class="{{ field.hasErrors ? " border-red-500" }}"
+                                        {{ option.checked ? "checked" : "" }}
+                                />
+                                <label class="form-check-label" for="{{ field.idAttribute }}-{{ index }}">
+                                    {{ option.label|t|raw }}
+                                </label>
+                            </div>
+                        {% endfor %}
+
+                        {{ field.renderInstructions() }}
+                        {{ field.renderErrors() }}
+
+                    {% elseif field.type == "select" %}
+
+                        {{ field.renderLabel({
+                            labelClass: labelClass,
+                            instructionsClass: instructionClass,
+                            errorClass: errorClass,
+                        }) }}
+
+                        <div class="relative">
+                            <select name="{{ field.handle }}" aria-label="{{ field.label }}" id="{{ field.idAttribute }}" class="{{ fieldClass }}">
+                            {% for option in field.options %}
+                                <option value="{{ option.value }}"{{ option.checked ? "selected" : "" }}>{{ option.label|t|raw }}</option>
+                            {% endfor %}
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black">
+                                <svg class="absolute w-3.5 h-full right-4" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" fill="#365489" viewBox="0 0 213.333 213.333" style="enable-background:new 0 0 213.333 213.333;" xml:space="preserve"><g><g><polygon points="0,53.333 106.667,160 213.333,53.333"></polygon></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                            </div>
+                        </div>
+
+                        {{ field.renderInstructions() }}
+                        {{ field.renderErrors() }}
+
+                    {% elseif field.type in ["checkbox", "mailing_list"] %}
+
+                        <div class="">
+                            {{ field.renderInput({ class: fieldClass ~ (field.hasErrors ? " border-red-500") }) }}
+                            {{ field.renderLabel({ labelClass: (field.hasErrors ? " border-red-500" : " text-black") }) }}
+                            {{ field.renderErrors({ errorClass: errorClass }) }}
+                        </div>
+
+                    {% elseif field.type == "submit" %}
+
+                        {{ field.render({ class: "submit ttm-btn ttm-btn-size-md ttm-btn-shape-round ttm-btn-style-fill ttm-btn-color-dark w-50" }) }}
+
+                    {% elseif field.type == "multiple_select" %}
+
+                        {{ field.render({
+                            class: fieldClass,
+                            labelClass: labelClass,
+                            instructionsClass: instructionClass,
+                            instructionsBelowField: true,
+                            errorClass: errorClass,
+                            inputAttributes: {"aria-label" : field.label}
+                        }) }}
+
+
+                    {% elseif field.type == "table" %}
+
+                        {{ field.render({
+                            class: fieldClass,
+                            labelClass: labelClass,
+                            instructionsClass: instructionClass,
+                            instructionsBelowField: true,
+                            errorClass: errorClass,
+                            addButtonLabel: "Add +",
+                            addButtonClass: "ttm-bgcolor-skincolor text-white font-normal py-2 px-4 rounded m-4",
+                            removeButtonLabel: "x",
+                            removeButtonClass: "bg-danger text-white font-normal py-2 px-4 rounded ml-2",
+                            tableTextInputClass: standardFieldClasses ~ " my-2",
+                            tableSelectInputClass: selectFieldClasses,
+                            tableCheckboxInputClass: checkboxFieldClasses ~ " m-1",
+                            tableLabelsClass: standardLabelsClasses
+                        }) }}
+
+                    {% else %}
+
+                        {{ field.render({
+                            class: fieldClass,
+                            labelClass: labelClass,
+                            instructionsClass: instructionClass,
+                            instructionsBelowField: true,
+                            errorClass: errorClass,
+                            inputAttributes: {"aria-label" : field.label}
+                        }) }}
+
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{{ form.renderClosingTag }}

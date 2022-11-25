@@ -1,0 +1,71 @@
+field: a4b75343-52a5-4067-b24c-0ff9dc3d76b0 # Progress Bar
+fieldLayouts:
+  3480bb3c-cf34-4930-96df-d9a5e252354b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e0e3a7da-edd7-4419-8678-10d9464fbe6e # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9deb4cc8-103d-40f3-a4ff-b80fda67dce5 # Number
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9deb4cc8-103d-40f3-a4ff-b80fda67dce5: # Number
+    columnSuffix: flspldfo
+    contentColumnType: smallint(3)
+    fieldGroup: null
+    handle: number
+    instructions: ''
+    name: Number
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: '100'
+      min: '0'
+      prefix: null
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Number
+  e0e3a7da-edd7-4419-8678-10d9464fbe6e: # Heading
+    columnSuffix: poosqigv
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+handle: progressBar
+name: 'Progress Bar'
+sortOrder: 1

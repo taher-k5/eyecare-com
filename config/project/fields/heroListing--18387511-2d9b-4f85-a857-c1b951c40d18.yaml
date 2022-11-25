@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: heroListing
+instructions: ''
+name: 'Hero Listing'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_herolisting}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: none
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

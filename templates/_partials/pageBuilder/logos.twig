@@ -1,0 +1,79 @@
+{#
+==================================================
+    Logos (logos)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Logo Images (logo)
+        - Background Color (backgroundColor)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color #}
+{% set bgColor = block.backgroundColor.getValue()|default('ttm-bgcolor-grey') %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default(null),
+    paddingBottom.classes|default(null),
+    bgColor
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+{% set thumb = {
+    mode: 'crop',
+    width: 'auto',
+    height: 90,
+    quality: 85
+} %}
+
+<section {{ attr(attributes) }}>
+    <div class="container">
+        {% for item in block.logo.all() %}
+        {% if loop.first %}
+        <div class="slick_slider slick-slide_ver-sep row" data-slick='{"slidesToShow": 6, "slidesToScroll": 1, "arrows":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":1200,"settings":{"slidesToShow": 5}}, {"breakpoint":1024,"settings":{"slidesToShow": 4}}, {"breakpoint":777,"settings":{"slidesToShow": 3}}, {"breakpoint":575,"settings":{"slidesToShow": 2}}]}'>
+        {% endif %}
+            <div class="col-lg-12">
+                <div class="client-box">
+                    <div class="ttm-client-logo-tooltip" data-tooltip="{{ item.title }}">
+                        <div class="client-thumbnail client-thumbnail-grayscale">
+                            {% set params = {
+                                image: item.getUrl(thumb),
+                                alt: item.title,
+                                class: 'img-fluid auto_size',
+                            } %}
+                            {{ render.setImage(params) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% if loop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>

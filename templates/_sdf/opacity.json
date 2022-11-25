@@ -1,0 +1,14 @@
+[
+	{"label": "Default", "value": ""},
+	{"label": "10", "value": "opacity--10"},
+	{"label": "9", "value": "opacity--9"},
+	{"label": "8", "value": "opacity--8"},
+	{"label": "7", "value": "opacity--7"},
+	{"label": "6", "value": "opacity--6"},
+	{"label": "5", "value": "opacity--5"},
+	{"label": "4", "value": "opacity--4"},
+	{"label": "3", "value": "opacity--3"},
+	{"label": "2", "value": "opacity--2"},
+	{"label": "1", "value": "opacity--1"},
+	{"label": "None", "value": "opacity--none"}
+]

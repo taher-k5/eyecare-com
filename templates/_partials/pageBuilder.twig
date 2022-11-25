@@ -1,0 +1,5 @@
+{% for block in entry.pageBuilder.type(null).level(1).all() %}
+	{% include [
+		"_partials/pageBuilder/" ~ block.type.handle
+	] %}
+{% endfor %}

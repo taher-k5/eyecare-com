@@ -1,0 +1,124 @@
+{#
+==================================================
+    Container (container)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Sidebar Eyebrow (eyebrow)
+        - Sidebar Heading (heading)
+        - Sidebar Text (text)
+        - Listing (listing) [Matrix]
+            - Heading (heading)
+            - Text (text)
+        Children BLocks:
+        - Any top-level blocks
+        - Background Color (backgroundColor)
+        - Background Image (backgroundImage)
+        - Margin Top (marginTop)
+        - Margin Bottom (marginBottom)
+        - Padding Top (paddingTop)
+        - Padding Bottom (paddingBottom)
+==================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_includes/macros' as render %}
+
+{% set marginTop = block.marginTop.getExtras() %}
+{% set marginBottom = block.marginBottom.getExtras() %}
+{% set paddingTop = block.paddingTop.getExtras() %}
+{% set paddingBottom = block.paddingBottom.getExtras() %}
+
+{# Set the BG color and image #}
+{% set bgColor = block.backgroundColor.getValue()|default('ttm-bgcolor-darkgrey') %}
+{% set bgImage = block.backgroundImage.one() %}
+
+{% set blockClasses = [
+    "block block--#{block.type}",
+    marginTop.classes|default(null),
+    marginBottom.classes|default(null),
+    paddingTop.classes|default('pt-medium'),
+    paddingBottom.classes|default(bgColor|length or loop.last ? 'pb-medium'),
+    bgColor,
+    "bg-image ttm-bgimage-yes ttm-bg"
+] %}
+
+{% set blockStyles = {} %}
+
+{% set id = "block-#{block.getId()}" %}
+
+{# Section attributes #}
+{% set attributes = {
+    id: id,
+    class: blockClasses,
+    style: blockStyles
+} %}
+
+{% set bgImage = {
+    image: bgImage,
+    selctor: id,
+} %}
+
+<section {{ attr(attributes) }}>
+    {{ render.setBackgroundImage(bgImage) }}
+    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-xl-4 col-md-12 ttm-sticky-column">
+                <div class="padding_left40 res-1199-padding_left15 margin_right20 res-1199-margin_right0 padding_right50 res-1199-padding_right15 res-1199-padding_bottom50">
+                    <div class="section-title">
+                        {% if block.eyebrow|length or block.heading|length %}
+                        <div class="title-header">
+                            {% if block.eyebrow %}
+                            <h3 class="eyebrowColor">{{ block.eyebrow }}</h3>
+                            {% endif %}
+
+                            {% if block.heading|length %}
+                            <h2 class="title">{{ block.heading }}</h2>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        {% if block.heading|length %}
+                        <div class="heading-seperator"><span></span></div>
+                        {% endif %}
+
+                        {% if block.text|length %}
+                        <div class="title-desc">
+                            {{ block.text }}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% for child in block.listing.all() %}
+                    {% if loop.first %}
+                    <div class="row">
+                    {% endif %}
+                        <div class="ttm-box-col-wrapper col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                            <div class="ttm-static-box-wrapper ttm-steps-box steps-style1">
+                                <div class="ttm-static-box-content">
+                                    <div class="ttm-steps-desc">
+                                        <h3><span class="ttm-static-steps-num ttm-textcolor-skincolor">{{ loop.index }}.</span>{{ child.heading }}</h3>
+                                        {{ child.text }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% if loop.last %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="row no-gutters">
+                    <div class="col-auto">
+                        {% for block in block.children.all() %}
+                            {% include "_partials/pageBuilder/" ~ block.type with {innerBlock:true} %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

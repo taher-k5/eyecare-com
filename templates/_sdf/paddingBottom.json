@@ -1,0 +1,9 @@
+[
+  {"value" : "", "label" : "Default", "default" : "true"},
+  {"value" : "none", "label" : "None", "classes" : "pb-0"},
+  {"value" : "extra-small", "label" : "Extra Small", "classes" : "pb-extraSmall"},
+  {"value" : "small", "label" : "Small", "classes" : "pb-small"},
+  {"value" : "medium", "label" : "Medium", "classes" : "pb-medium"},
+  {"value" : "large", "label" : "Large", "classes" : "pb-large"},
+  {"value" : "extra-large", "label" : "Extra Large", "classes" : "pb-extraLarge"}
+]

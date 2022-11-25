@@ -1,0 +1,13 @@
+childBlocks:
+  - stack
+  - card
+  - slider
+  - featuredCard
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+handle: listingContent
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: '  Listing Content'
+sortOrder: 21
+topLevel: true

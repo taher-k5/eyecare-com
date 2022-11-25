@@ -1,0 +1,56 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: listingCards
+instructions: ''
+name: 'Listing Cards'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 9c082bb5-9269-4b6e-9d2e-5a5237563174 # Icon
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 9f736465-9550-4130-9761-e2fc1dd034d0 # Heading
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - cebb15f0-3aaa-4f85-bdf3-0b45962c1d78 # Text
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ee57fc5e-2eae-4c2d-a550-66bc010ed2e0 # Lists
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 6b1c5fc7-49b7-457d-8e39-8371ccd72454 # Button
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_listingcards}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

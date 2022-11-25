@@ -1,0 +1,10 @@
+columnSuffix: pdlldjay
+contentColumnType: integer
+fieldGroup: 8a88dc9e-d347-45fd-91a5-516debdcb33d # Neo
+handle: form
+instructions: ''
+name: Form
+searchable: true
+translationKeyFormat: null
+translationMethod: site
+type: Solspace\Freeform\FieldTypes\FormFieldType

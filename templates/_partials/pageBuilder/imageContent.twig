@@ -1,0 +1,21 @@
+{#
+==================================================
+    Image Content (imageContent)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Child
+	        - Image Content With Listing (imageContentWithListing)
+	        - Image Content With Sidenote (imageContentWithSidenote)
+	        - Image Content With Video (imageContentWithVideo)
+	        - Image Content With Full Width (imageContentWithFullWidth)
+==================================================
+ #}
+
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% set last = loop.last %}
+{% for block in block.children.all() %}
+	{% include "_partials/pageBuilder/imageContent/" ~ block.type %}
+{% endfor %}

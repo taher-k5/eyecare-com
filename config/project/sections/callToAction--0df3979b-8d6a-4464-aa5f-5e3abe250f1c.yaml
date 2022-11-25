@@ -1,0 +1,39 @@
+defaultPlacement: end
+enableVersioning: true
+handle: callToAction
+name: 'Call To Action'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  2c2850f7-4457-45d8-8ae0-65a4c01bc69f: # Mechanicsburg Eye
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  11d77e24-a31c-4f20-8dff-6f54b85283df: # York Eye
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  89ec2dbc-b44f-40d8-b224-548937d554dc: # Carlislevision Care
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  425199fc-1a4f-4a25-ab29-66c431ff91db: # Wheatlyn Eyecare
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

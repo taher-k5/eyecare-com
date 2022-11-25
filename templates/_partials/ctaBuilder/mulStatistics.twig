@@ -1,0 +1,32 @@
+{% import '_includes/macros' as render %}
+
+{% if block.statistics|length %}
+{% for block in block.statistics.all() %}
+<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+    <div class="ttm-fid inside ttm-fid-with-icon ttm-fid-view-lefticon style3">
+        <div class="ttm-fid-contents">
+            <div class="ttm-fid-icon-wrapper {{ bgColor == 'ttm-bgcolor-skincolor' ? '' : 'ttm-textcolor-skincolor' }}">
+                {% set params = {
+                    icon: block.icon
+                } %}
+                {{ render.icon(params) }}
+            </div>
+            <h4 class="ttm-fid-inner">
+                <span   data-appear-animation="animateDigits"
+                        data-from="0"
+                        data-to="{{ block.number }}"
+                        data-interval="15"
+                        data-before=""
+                        data-before-style="sup"
+                        data-after=""
+                        data-after-style="sub"
+                        class="numinate">{{ block.number }}
+                </span>
+                <span>+</span>
+            </h4>
+            <h3 class="ttm-fid-title {{ bgColor == 'ttm-bgcolor-skincolor' ? 'textBlue' : '' }}">{{ block.heading }}</h3>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,17 @@
+{#
+==================================================
+    Simple Silders (simpleSilders)
+    Variable:
+        - Block (Block)
+
+    Fields:
+        - Child
+	        - Simple Slider (simpleSlider)
+==================================================
+ #}
+
+{{ craft.app.config.general.devMode ? ('<!-- Template ' ~ _self ~ ' -->') | raw }}
+
+{% for block in block.children.all() %}
+	{% include "_partials/hero/simpleSilders/" ~ block.type %}
+{% endfor %}

@@ -1,0 +1,28 @@
+childBlocks:
+  - heading
+  - text
+  - headingText
+field: 5fd03c49-057d-404f-bf92-e78039e66854 # Page Builder
+fieldLayouts:
+  570acdd3-c71c-4e45-89a4-2933daf7ae61:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e12ef773-4f4d-4cff-a11c-396ee40e709e # Tab Name
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: tab
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Tab
+sortOrder: 31
+topLevel: false

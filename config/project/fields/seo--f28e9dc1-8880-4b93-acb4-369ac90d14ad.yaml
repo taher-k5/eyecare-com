@@ -1,0 +1,34 @@
+columnSuffix: foqnmfuk
+contentColumnType: text
+fieldGroup: 742cee9e-0d18-4762-858d-adb0b404d053 # Common
+handle: seo
+instructions: ''
+name: SEO
+searchable: false
+settings:
+  elementDisplayPreviewType: google
+  facebookTabEnabled: ''
+  generalEnabledFields:
+    - seoPreview
+    - mainEntityOfPage
+    - seoTitle
+    - siteNamePosition
+    - seoDescription
+    - seoKeywords
+    - seoImage
+    - seoImageTransform
+    - seoImageTransformMode
+    - seoImageDescription
+    - robots
+    - canonicalUrl
+  generalTabEnabled: '1'
+  sitemapEnabledFields:
+    - sitemapUrls
+    - sitemapChangeFreq
+    - sitemapPriority
+    - sitemapLimit
+  sitemapTabEnabled: '1'
+  twitterTabEnabled: ''
+translationKeyFormat: null
+translationMethod: site
+type: nystudio107\seomatic\fields\SeoSettings
